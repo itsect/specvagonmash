@@ -1,14 +1,26 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 import {defineConfig} from 'astro/config';
 
 import preact from '@astrojs/preact';
+import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
     site: 'https://example.com',
-    integrations: [mdx(), sitemap(), preact()],
+    integrations: [mdx(), sitemap(), preact(), tailwind()],
     output: 'server',
     markdown: {
         extendDefaultPlugins: true,
-    }
+    },
+    vite: {
+        resolve: {
+            alias: {
+                '~': path.resolve(__dirname, './src'),
+            },
+        },
+    },
 });
