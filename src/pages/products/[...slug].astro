@@ -13,6 +13,7 @@ const entry = await getEntry('products', slug);
 if (entry === undefined) {
     return Astro.redirect("/404");
 }
+
 // 4. (Optional) Render the entry to HTML in the template
 const { Content } = await entry.render();
 
