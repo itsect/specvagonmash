@@ -1,0 +1,10 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import ProductsLayout from '../../layouts/products.astro';
+
+const allProducts = await getCollection('products');
+
+---
+<ProductsLayout>
+    PID
+</ProductsLayout>
