@@ -1,14 +1,14 @@
 // 1. Import utilities from `astro:content`
 import {defineCollection} from 'astro:content';
-import {docsSchema} from "../schemas";
+import {productsSchema} from "../schemas";
 
 // 2. Define a `type` and `schema` for each collection
-const docsCollection = defineCollection({
+const productsCollection = defineCollection({
     type: 'content',
-    schema: docsSchema,
+    schema: productsSchema,
 });
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-    'products': docsCollection,
+    'products': productsSchema,
 };
