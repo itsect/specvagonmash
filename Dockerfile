@@ -1,4 +1,4 @@
-FROM node:alpine as astro
+FROM node:18 as astro
 
 LABEL version="1.0.0"
 LABEL maintainer="Vladimir Lukyanov | vladimir@lukyanov.net"
@@ -15,7 +15,7 @@ RUN ["mkdir", "src"]
 
 RUN ["npm", "i"]
 
-EXPOSE 3333
+EXPOSE 3000
 
 CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
 
