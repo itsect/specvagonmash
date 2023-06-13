@@ -1,25 +1,153 @@
 ---
+import fs from 'node:fs/promises';
 import {getCollection, getEntry} from 'astro:content';
+import { Image } from '@astrojs/image/components';
 import ProductsLayout from '../../layouts/products.astro';
 
 const {pid} = Astro.params;
 
 const allProducts = await getCollection('products');
+
+let title = '';
+switch (pid) {
+    case 'gate-valves-choke-manifolds-wellheads-x-mas-trees' :
+        title = 'Задвижки, Дроссельные манифольды, Устья скважин, Рождественские елки';
+        break;
+    case 'unions-swivels-treating-irons-circulating-heads' :
+        title = 'Соединения, вертлюги, аппараты для обработки и циркуляционных головок';
+        break;
+    case 'tubulars-drilling-workover-tools-cementing-equipment' :
+        title = 'Нефтепромысловые трубы, Инструменты для бурения и капитального ремонта, Оборудование для цементирования';
+        break;
+    case 'surface-pressure-control-equipment' :
+        title = 'Оборудование для контроля взрывного давления';
+        break;
+    case 'coiled-tubing-tools' :
+        title = 'Инструменты для ГНКТ';
+        break;
+    case 'wireline-tools-accessories' :
+        title = 'Инструменты и аксессуары для троса';
+        break;
+    case 'completion-equipment' :
+        title = 'Оборудование для окончаний';
+        break;
+    case 'flow-control-equipment' :
+        title = 'Оборудование для управления потоком';
+        break;
+    case 'gas-lift-equipment' :
+        title = 'Газлифтное оборудование';
+        break;
+    case 'calibration-of-gaslift-valves' :
+        title = 'Калибровка газлифтных клапанов';
+        break;
+    default:
+        break;
+}
+const productsList = allProducts.filter(product => product.slug.includes(pid))
+productsList.map(product => {
+    const image_source_path = '/src/content/products/' + pid + '/' + product.slug.split('/').slice(1).join('/') + '/' + product.slug.split('/').slice(1).join('/') + '-product.png';
+    if (product.data.has_featured_image) {
+        product.data.featured_image = import(image_source_path)
+    }
+
+    return product
+})
 ---
 <ProductsLayout>
 
-    <div class="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 sm:pt-24 sm:pb-32 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-        <ol class="list-decimal">
-            {allProducts.map(p => {
+    <div class="relative py-24 px-6 sm:py-24 sm:px-12 lg:px-24">
+        <div class="absolute inset-0 overflow-hidden bg-white">
+            <img src={'/src/assets/products/_categories/' + pid + '.png'} alt=""
+                 class="h-full w-full object-contain object-center">
+        </div>
+        <div aria-hidden="true" class="absolute inset-0 bg-slate-700 bg-opacity-50"></div>
+        <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{title}</h2>
+        </div>
+    </div>
 
+    <div class="mx-auto max-w-7xl py-6 sm:py-6 sm:px-2 lg:px-4 px-4">
+
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol role="list" class="flex items-center space-x-4">
+                <li>
+                    <div>
+                        <a href="/" class="text-gray-400 hover:text-gray-500">
+                            <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                 fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                      d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
+                                      clip-rule="evenodd"/>
+                            </svg>
+                            <span class="sr-only">Главная страница</span>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                  clip-rule="evenodd"/>
+                        </svg>
+                        <a href="/products"
+                           class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="flex items-center">
+                        <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                  clip-rule="evenodd"/>
+                        </svg>
+                        <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+                           aria-current="page" title={title}>{title}</a>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <div class="mt-10 space-y-6 border-t border-gray-200 pt-4 sm:mt-6 sm:pt-4 px-4">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {productsList.map(product => {
                     return (
-                            <li>
-                                <a href={'/products/' + p.slug}>{p.data.title}</a>
-                            </li>
-
-                    )
-                }
-            )}
-        </ol>
+                            <a href={'/products/' + product.slug} class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 hover:bg-gray-50">
+                                {product.data.has_featured_image && (
+                                        <div class="flex-shrink-0">
+                                            <Image class="h-20 w-20 rounded-full"
+                                                   aspectRatio="1:1"
+                                                   width="80"
+                                                   height="80"
+                                                   position="top"
+                                                   src={product.data.featured_image}
+                                                   format={'png'}
+                                                   alt="" />
+                                        </div>
+                                )}
+                                <div class="min-w-0 flex-1">
+                                    <div class="focus:outline-none">
+                                        <span class="absolute inset-0" aria-hidden="true"></span>
+                                        <p class="truncate text-sm font-medium text-indigo-600 text-sm font-medium">{product.data.title}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                              clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                        )
+                    }
+                )}
+            </div>
+        </div>
     </div>
 </ProductsLayout>
