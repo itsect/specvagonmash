@@ -5,6 +5,7 @@ export interface Props {
     image?: string;
 }
 const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
+console.log(import.meta)
 ---
 
 <!-- Global Metadata -->
@@ -14,7 +15,7 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Sitemap -->
-<link rel="sitemap" href={new URL('./sitemap.xml', import.meta.env.SITE ? import.meta.env.SITE : Astro.url)}>
+<link rel="sitemap" href={new URL('./sitemap.xml', import.meta.env.BASE_URL ? import.meta.env.BASE_URL : Astro.url)}>
 <style>
     @tailwind base;
     @tailwind components;
@@ -31,14 +32,14 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={import.meta.env.SITE ? import.meta.env.SITE : Astro.url} />
+<meta property="og:url" content={import.meta.env.BASE_URL ? import.meta.env.BASE_URL : Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, import.meta.env.SITE ? import.meta.env.SITE : Astro.url)} />
+<meta property="og:image" content={new URL(image, import.meta.env.BASE_URL ? import.meta.env.BASE_URL : Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={import.meta.env.SITE ? import.meta.env.SITE : Astro.url} />
+<meta property="twitter:url" content={import.meta.env.BASE_URL ? import.meta.env.BASE_URL : Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, import.meta.env.SITE ? import.meta.env.SITE : Astro.url)} />
+<meta property="twitter:image" content={new URL(image, import.meta.env.BASE_URL ? import.meta.env.BASE_URL : Astro.url)} />
