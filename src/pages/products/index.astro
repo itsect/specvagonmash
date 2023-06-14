@@ -1,4 +1,5 @@
 ---
+const origin = Astro.url.origin;
 import {getCollection, getEntry} from 'astro:content';
 import {Image} from "astro:assets";
 
@@ -21,7 +22,7 @@ const allCategories = await getCollection('categories');
                         <ol role="list" class="flex items-center space-x-4">
                             <li>
                                 <div>
-                                    <a href="/" class="text-gray-400 hover:text-gray-500">
+                                    <a href={origin} class="text-gray-400 hover:text-gray-500">
                                         <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                                              viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
@@ -41,7 +42,7 @@ const allCategories = await getCollection('categories');
                                               d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                               clip-rule="evenodd"/>
                                     </svg>
-                                    <a href="/products"
+                                    <a href={origin + '/products'}
                                        class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
                                 </div>
                             </li>
@@ -51,12 +52,11 @@ const allCategories = await getCollection('categories');
                     {allCategories.sort((a, b) => {
                         return a.data.id - b.data.id;
                     }).map(category => {
-
                         return (
                                 <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
                                     <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
                                         <h3 class="text-lg font-medium text-gray-900">
-                                            <a href={'/products/' + category.slug} title={category.data.title}>
+                                            <a href={origin + '/products/' + category.slug} title={category.data.title}>
                                                 {category.data.title}
                                             </a>
                                         </h3>
@@ -67,8 +67,8 @@ const allCategories = await getCollection('categories');
                                             <a href={'/products/' + category.slug}
                                                title={category.data.title}>
                                                 <Image width="800" height="320"
-                                                       src={category.data.featured_image}
-                                                       alt={category.data.title}/>
+                                                       src={category.data.featured} alt={category.data.title}
+                                                />
                                             </a>
                                         </div>
                                     </div>

@@ -1,6 +1,6 @@
 ---
+const origin = Astro.url.origin
 import {getCollection, getEntry} from 'astro:content';
-import { Image } from 'astro:assets'
 import ProductsLayout from '../../layouts/products.astro';
 
 
@@ -22,7 +22,8 @@ export async function getStaticPaths() {
 
 const {slug} = Astro.params;
 
-const category = await getEntry('categories', slug.split('/').slice(0, 1).join('/'));
+const categoryCollection = await getCollection('categories')
+const category = categoryCollection.find((category) => category.slug === slug.split('/').slice(0, 1).join('/'));
 // import { getEntry } from "astro:content";
 
 
@@ -39,6 +40,7 @@ if (entry === undefined) {
 }
 
 const { Content } = await entry.render();
+console.log(category)
 ---
 <ProductsLayout>
     <div class="bg-white">
@@ -53,7 +55,7 @@ const { Content } = await entry.render();
                 <ol role="list" class="flex items-center space-x-4">
                     <li>
                         <div>
-                            <a href="/" class="text-gray-400 hover:text-gray-500">
+                            <a href={origin} class="text-gray-400 hover:text-gray-500">
                                 <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 20 20"
                                      fill="currentColor" aria-hidden="true">
@@ -74,7 +76,7 @@ const { Content } = await entry.render();
                                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <a href="/products"
+                            <a href={origin + '/products/'}
                                class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
                         </div>
                     </li>
@@ -87,7 +89,7 @@ const { Content } = await entry.render();
                                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <a href={'/products/' + category.slug}
+                            <a href={origin + '/products/' + category.slug}
                                class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
                                aria-current="page" title={category.data.title}>{category.data.title}</a>
                         </div>
