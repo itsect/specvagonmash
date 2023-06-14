@@ -15,7 +15,7 @@ console.log(import.meta)
 <meta name="generator" content={Astro.generator} />
 
 <!-- Sitemap -->
-<link rel="sitemap" href={new URL('./sitemap.xml', Astro.url)}>
+<link rel="sitemap" href={new URL('./sitemap.xml', import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url)}>
 <style>
     @tailwind base;
     @tailwind components;
@@ -32,14 +32,14 @@ console.log(import.meta)
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(image, import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={new URL(image, import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url)} />

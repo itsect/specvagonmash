@@ -21,9 +21,6 @@ export default defineConfig({
     adapter: node({
         mode: 'standalone'
     }),
-    markdown: {
-        extendDefaultPlugins: true,
-    },
     experimental: {
         assets: true
     },
