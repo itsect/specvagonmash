@@ -92,7 +92,7 @@ const productsList = allProducts.filter(product => product.slug.includes(pid))
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {productsList.map(product => {
                     return (
-                                <a href={new URL('./products/' + product.slug, Astro.url)}
+                                <a href={new URL(product.slug, Astro.url)}
                                    class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 hover:bg-gray-50">
                                     {product.data.has_featured_image && (
                                             <div class="flex-shrink-0">
