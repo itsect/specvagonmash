@@ -15,11 +15,10 @@ import node from '@astrojs/node';
 
 export default defineConfig({
     site: 'https://itsect.github.io',
-    base: '/specvagonmash',
     integrations: [mdx(), sitemap(), preact(), tailwind(), image({
         serviceEntryPoint: '@astrojs/image/sharp'
     })],
-    output: 'server',
+    output: 'static',
     adapter: node({
         mode: 'standalone'
     }),

@@ -1,49 +1,32 @@
 ---
-import fs from 'node:fs/promises';
+import {Image} from '@astrojs/image/components';
 import {getCollection, getEntry} from 'astro:content';
-import { Image } from '@astrojs/image/components';
 import ProductsLayout from '../../layouts/products.astro';
 
+// 1. Generate a new path for every collection entry
+
+export async function getStaticPaths() {
+
+    const allCategories = await getCollection('categories');
+
+    return allCategories.map((category) => {
+        return {
+            params: {
+                pid: category.slug
+            },
+            props: {
+                title: category.data.title
+            }
+        };
+    });
+}
+
 const {pid} = Astro.params;
+const {title} = Astro.props;
 
 const allProducts = await getCollection('products');
-
-let title = '';
-switch (pid) {
-    case 'gate-valves-choke-manifolds-wellheads-x-mas-trees' :
-        title = 'Задвижки, Дроссельные манифольды, Устья скважин, Рождественские елки';
-        break;
-    case 'unions-swivels-treating-irons-circulating-heads' :
-        title = 'Соединения, вертлюги, аппараты для обработки и циркуляционных головок';
-        break;
-    case 'tubulars-drilling-workover-tools-cementing-equipment' :
-        title = 'Нефтепромысловые трубы, Инструменты для бурения и капитального ремонта, Оборудование для цементирования';
-        break;
-    case 'surface-pressure-control-equipment' :
-        title = 'Оборудование для контроля взрывного давления';
-        break;
-    case 'coiled-tubing-tools' :
-        title = 'Инструменты для ГНКТ';
-        break;
-    case 'wireline-tools-accessories' :
-        title = 'Инструменты и аксессуары для троса';
-        break;
-    case 'completion-equipment' :
-        title = 'Оборудование для окончаний';
-        break;
-    case 'flow-control-equipment' :
-        title = 'Оборудование для управления потоком';
-        break;
-    case 'gas-lift-equipment' :
-        title = 'Газлифтное оборудование';
-        break;
-    case 'calibration-of-gaslift-valves' :
-        title = 'Калибровка газлифтных клапанов';
-        break;
-    default:
-        break;
-}
 const productsList = allProducts.filter(product => product.slug.includes(pid))
+
 productsList.map(product => {
     const image_source_path = '/src/content/products/' + pid + '/' + product.slug.split('/').slice(1).join('/') + '/' + product.slug.split('/').slice(1).join('/') + '-product.png';
     if (product.data.has_featured_image) {
@@ -52,6 +35,8 @@ productsList.map(product => {
 
     return product
 })
+
+
 ---
 <ProductsLayout>
 
@@ -116,7 +101,8 @@ productsList.map(product => {
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {productsList.map(product => {
                     return (
-                            <a href={'/products/' + product.slug} class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 hover:bg-gray-50">
+                            <a href={'/products/' + product.slug}
+                               class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 hover:bg-gray-50">
                                 {product.data.has_featured_image && (
                                         <div class="flex-shrink-0">
                                             <Image class="h-20 w-20 rounded-full"
@@ -126,7 +112,7 @@ productsList.map(product => {
                                                    position="top"
                                                    src={product.data.featured_image}
                                                    format={'png'}
-                                                   alt="" />
+                                                   alt=""/>
                                         </div>
                                 )}
                                 <div class="min-w-0 flex-1">
@@ -145,9 +131,9 @@ productsList.map(product => {
                                 </div>
                             </a>
                         )
-                    }
-                )}
-            </div>
-        </div>
-    </div>
-</ProductsLayout>
+                        }
+                        )}
+                        </div>
+                        </div>
+                        </div>
+                        </ProductsLayout>
