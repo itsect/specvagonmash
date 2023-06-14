@@ -1,5 +1,5 @@
 ---
-const origin = Astro.site.origin;
+const origin = Astro.origin;
 import {Image} from "astro:assets";
 import {getCollection, getEntry} from 'astro:content';
 
@@ -22,7 +22,7 @@ const allCategories = await getCollection('categories');
                         <ol role="list" class="flex items-center space-x-4">
                             <li>
                                 <div>
-                                    <a href={new URL(Astro.site)} class="text-gray-400 hover:text-gray-500">
+                                    <a href={new URL(Astro.site ? Astro.site : Astro.url)} class="text-gray-400 hover:text-gray-500">
                                         <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                                              viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
@@ -42,7 +42,7 @@ const allCategories = await getCollection('categories');
                                               d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                               clip-rule="evenodd"/>
                                     </svg>
-                                    <a href={new URL('./products', Astro.site)}
+                                    <a href={new URL('./products', Astro.site ? Astro.site : Astro.url)}
                                        class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
                                 </div>
                             </li>
@@ -64,7 +64,7 @@ const allCategories = await getCollection('categories');
                                     </div>
                                     <div class="flex-auto lg:col-span-7 xl:col-span-8">
                                         <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                            <a href={new URL('/products/' + category.slug, Astro.site)}
+                                            <a href={new URL('/products/' + category.slug, Astro.site ? Astro.site : Astro.url)}
                                                title={category.data.title}>
                                                 <Image width="800" height="320"
                                                        src={category.data.image} alt={category.data.title}
