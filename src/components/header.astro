@@ -1,5 +1,5 @@
 ---
-const origin = import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url.origin
+const origin = 'https://itsect.github.io/specvagonmash/'.origin
 ---
 
 <div class="relative bg-white">
@@ -21,9 +21,9 @@ const origin = import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url.o
                 </button>
             </div>
             <nav class="hidden space-x-10 md:flex">
-                <a href={new URL('/products', import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url)} class="text-base font-medium text-gray-500 hover:text-gray-900">Продукция</a>
-                <a href={new URL('/about', import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url)} class="text-base font-medium text-gray-500 hover:text-gray-900">О компании</a>
-                <a href={new URL('/contacts', import.meta.env.PROD ? Astro.url + '/specvagonmash' : Astro.url)} class="text-base font-medium text-gray-500 hover:text-gray-900">Контакты</a>
+                <a href={new URL('/products', 'https://itsect.github.io/specvagonmash/')} class="text-base font-medium text-gray-500 hover:text-gray-900">Продукция</a>
+                <a href={new URL('/about', 'https://itsect.github.io/specvagonmash/')} class="text-base font-medium text-gray-500 hover:text-gray-900">О компании</a>
+                <a href={new URL('/contacts', 'https://itsect.github.io/specvagonmash/')} class="text-base font-medium text-gray-500 hover:text-gray-900">Контакты</a>
 
             </nav>
         </div>
