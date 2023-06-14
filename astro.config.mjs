@@ -27,6 +27,10 @@ export default defineConfig({
     experimental: {
         assets: true
     },
+    image: {
+        // Example: Enable the Sharp-based image service
+        service: {entrypoint: 'astro/assets/services/sharp'},
+    },
     vite: {
         resolve: {
             alias: {
