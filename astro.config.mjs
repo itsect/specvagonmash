@@ -13,14 +13,16 @@ import node from '@astrojs/node';
 
 
 export default defineConfig({
-    site: 'https://itsect.github.io/specvagonmash',
+
     integrations: [mdx(), sitemap(), preact(), tailwind()],
     output: 'static',
     adapter: node({
         mode: 'standalone'
     }),
     build: {
-        assetsPrefix: 'https://itsect.github.io/specvagonmash'
+        site: 'https://itsect.github.io',
+        assetsPrefix: 'https://itsect.github.io/specvagonmash',
+        base: '/specvagonmash',
     },
     markdown: {
         extendDefaultPlugins: true,
