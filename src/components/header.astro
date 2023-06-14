@@ -1,5 +1,5 @@
 ---
-const origin = Astro.url.origin
+const origin = Astro.site.origin
 ---
 
 <div class="relative bg-white">
@@ -21,11 +21,11 @@ const origin = Astro.url.origin
                 </button>
             </div>
             <nav class="hidden space-x-10 md:flex">
-                <a href={new URL('/products', Astro.url)} class="text-base font-medium text-gray-500 hover:text-gray-900">Продукция</a>
+                <a href={new URL('/products', Astro.site)} class="text-base font-medium text-gray-500 hover:text-gray-900">Продукция</a>
 
-                <a href={new URL('/about', Astro.url)} class="text-base font-medium text-gray-500 hover:text-gray-900">О компании</a>
+                <a href={new URL('/about', Astro.site)} class="text-base font-medium text-gray-500 hover:text-gray-900">О компании</a>
 
-                <a href={new URL('/contacts', Astro.url)} class="text-base font-medium text-gray-500 hover:text-gray-900">Контакты</a>
+                <a href={new URL('/contacts', Astro.site)} class="text-base font-medium text-gray-500 hover:text-gray-900">Контакты</a>
 
             </nav>
         </div>
