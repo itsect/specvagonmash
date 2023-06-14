@@ -135,7 +135,9 @@ const { Content } = await entry.render();
             <!-- Product image -->
             <div class="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-start">
                 <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
-
+                    {entry.data?.has_featured_image && (
+                            <Image src={entry.data.featured_image}/>
+                    )}
                 </div>
             </div>
 

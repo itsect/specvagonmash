@@ -1,1 +1,4 @@
 .idea
+Dockerfile
+Dockerfile.build
+Makefile
