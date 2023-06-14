@@ -1,82 +1,44 @@
 ---
 import {getCollection, getEntry} from 'astro:content';
-import {Image} from '@astrojs/image/components';
+import { Image } from 'astro:assets'
 import ProductsLayout from '../../layouts/products.astro';
 
 
 export async function getStaticPaths() {
 
-    return [
+    const allProducts = await getCollection('products');
 
-    ];
+    return allProducts.map((product) => {
+        return {
+            params: {
+                slug: product.slug
+            },
+            props: {
+                title: product.data.title
+            }
+        };
+    });
 }
 
 const {slug} = Astro.params;
-console.log(Astro)
 
+const category = await getEntry('categories', slug.split('/').slice(0, 1).join('/'));
 // import { getEntry } from "astro:content";
 
 
-// if (slug === undefined) {
-//     throw new Error("Slug is required");
-// }
-//
-// // 2. Query for the entry directly using the request slug
-// const entry = await getEntry('products', slug);
-// // 3. Redirect if the entry does not exist
-// if (entry === undefined) {
-//     return Astro.redirect("/404");
-// }
+if (slug === undefined) {
+    throw new Error("Slug is required");
+}
 
-// // 4. (Optional) Render the entry to HTML in the template
-// let title = '';
-// switch (slug.split('/').slice(0,1).join('/')) {
-//     case 'gate-valves-choke-manifolds-wellheads-x-mas-trees' :
-//         title = 'Задвижки, Дроссельные манифольды, Устья скважин, Рождественские елки';
-//         break;
-//     case 'unions-swivels-treating-irons-circulating-heads' :
-//         title = 'Соединения, вертлюги, аппараты для обработки и циркуляционных головок';
-//         break;
-//     case 'tubulars-drilling-workover-tools-cementing-equipment' :
-//         title = 'Нефтепромысловые трубы, Инструменты для бурения и капитального ремонта, Оборудование для цементирования';
-//         break;
-//     case 'surface-pressure-control-equipment' :
-//         title = 'Оборудование для контроля взрывного давления';
-//         break;
-//     case 'coiled-tubing-tools' :
-//         title = 'Инструменты для ГНКТ';
-//         break;
-//     case 'wireline-tools-accessories' :
-//         title = 'Инструменты и аксессуары для троса';
-//         break;
-//     case 'completion-equipment' :
-//         title = 'Оборудование для окончаний';
-//         break;
-//     case 'flow-control-equipment' :
-//         title = 'Оборудование для управления потоком';
-//         break;
-//     case 'gas-lift-equipment' :
-//         title = 'Газлифтное оборудование';
-//         break;
-//     case 'calibration-of-gaslift-valves' :
-//         title = 'Калибровка газлифтных клапанов';
-//         break;
-//     default:
-//         break;
-// }
-//
-// const { Content } = await entry.render();
-//
-// const image_source_path = '/src/content/products/' + slug.split('/').slice(0).join('/') + '/' + slug.split('/').slice(1).join('/') + '-product.png';
-// const pdf_source_path = '/src/content/products/' + slug.split('/').slice(0).join('/') + '/' + slug.split('/').slice(1).join('/') + '.pdf';
-//
-// if (entry.data?.has_featured_image) {
-//     entry.data.featured_image = import(image_source_path)
-// }
-//
-// if (entry.data?.has_pdf) {
-//     entry.data.pdf = new URL(pdf_source_path, import.meta.url).href
-// }
+// 2. Query for the entry directly using the request slug
+const entry = await getEntry('products', slug);
+
+// 3. Redirect if the entry does not exist
+if (entry === undefined) {
+    return Astro.redirect("/404");
+}
+
+const { Content } = await entry.render();
 ---
 <ProductsLayout>
     <div class="bg-white">
@@ -125,9 +87,9 @@ console.log(Astro)
                                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <a href={'/products/' + slug.split('/').slice(0, 1).join('/')}
+                            <a href={'/products/' + category.slug}
                                class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
-                               aria-current="page" title={title}>{title}</a>
+                               aria-current="page" title={category.data.title}>{category.data.title}</a>
                         </div>
                     </li>
 
@@ -171,9 +133,7 @@ console.log(Astro)
             <!-- Product image -->
             <div class="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-start">
                 <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
-                    {entry.data?.has_featured_image && (
-                            <Image src={entry.data.featured_image}/>
-                    )}
+
                 </div>
             </div>
 

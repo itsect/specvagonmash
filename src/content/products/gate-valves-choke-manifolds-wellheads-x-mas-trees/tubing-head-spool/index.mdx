@@ -3,7 +3,7 @@ title : "Катушка с трубной головкой"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './tubing-head-spool.png';
 
 Катушки НКТ PTHD для популярных подвесок с разъемными подвесками для двойного выпуска. Он имеет приваренные клинья для выравнивания подвески и открытый верхний фланец.
@@ -12,4 +12,4 @@ import image from './tubing-head-spool.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

@@ -3,7 +3,7 @@ title : "Роликовый соединитель"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './roll-on-connector.png';
 
 **Приложение**
@@ -19,4 +19,4 @@ import image from './roll-on-connector.png';
 5.  Простая установка.
 
 <br />
-<Image src={image} />
+<Image src={image} alt={''} />

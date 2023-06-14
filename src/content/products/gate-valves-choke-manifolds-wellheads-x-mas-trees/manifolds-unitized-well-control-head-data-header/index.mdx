@@ -3,7 +3,7 @@ title : "Коллекторы / Унифицированная головка у
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './manifolds-unitized-well-control-head-data-header.png';
 
 3,1/8 дюйма x 5000 фунтов на квадратный дюйм CWP – 3,1/16 дюйма x 100000 фунтов на квадратный дюйм CWP
@@ -44,4 +44,4 @@ import image from './manifolds-unitized-well-control-head-data-header.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

@@ -3,7 +3,7 @@ title : "Системасоединенных смазок"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './grease-injection-supply-system.png';
 
 Основа смазки PARVEEN используется для подачи смазки к блоку управления впрыском смазки при рабочем измерении от 2000 до 15000 фунтов на квадратный дюйм с помощью шлангов для впрыска смазки и возврата смазки.
@@ -12,4 +12,4 @@ import image from './grease-injection-supply-system.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

@@ -3,7 +3,7 @@ title : "Подвеска для ГНКТ"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './coiled-tubing-hanger.png';
 
 **Функции**
@@ -16,4 +16,4 @@ import image from './coiled-tubing-hanger.png';
 *  Помещается переходником для ввода кабеля для направления канатных инструментов в отверстие НКТ. Этот переходный процесс повторяет кольцевое пространство и локализацию расположения НКТ вверх.
 
 <br />
-<Image src={image} />
+<Image src={image} alt={'Подвеска для ГНКТ'} />

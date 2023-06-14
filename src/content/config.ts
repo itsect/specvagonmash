@@ -1,6 +1,6 @@
 // 1. Import utilities from `astro:content`
 import {defineCollection} from 'astro:content';
-import {productsSchema, cate, categoriesSchema} from "../schemas";
+import {productsSchema, categoriesSchema} from "../schemas";
 
 // 2. Define a `type` and `schema` for each collection
 const productsCollection = defineCollection({

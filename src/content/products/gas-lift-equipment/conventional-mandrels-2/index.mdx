@@ -3,7 +3,7 @@ title : "Обычные оправки"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './conventional-mandrels-2.png';
 
 **ОБЫЧНАЯ ОПРАВКА – СЕРИЯ 12 (МОДЕЛЬ: PCM-12S)**
@@ -16,4 +16,4 @@ import image from './conventional-mandrels-2.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

@@ -9,21 +9,21 @@ import preact from '@astrojs/preact';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import image from '@astrojs/image';
 import node from '@astrojs/node';
 
 
 export default defineConfig({
     site: 'https://itsect.github.io',
-    integrations: [mdx(), sitemap(), preact(), tailwind(), image({
-        serviceEntryPoint: '@astrojs/image/sharp'
-    })],
+    integrations: [mdx(), sitemap(), preact(), tailwind()],
     output: 'static',
     adapter: node({
         mode: 'standalone'
     }),
     markdown: {
         extendDefaultPlugins: true,
+    },
+    experimental: {
+        assets: true
     },
     vite: {
         resolve: {

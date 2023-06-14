@@ -3,7 +3,7 @@ title : "Прямые грифы и штанги с отягощениями"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './straight-bars-weight-bars.png';
 
 **Приложения:**
@@ -21,4 +21,4 @@ import image from './straight-bars-weight-bars.png';
 * Доступны разные поиски и вес
 
 <br />
-<Image src={image} />
+<Image src={image} alt={''} />

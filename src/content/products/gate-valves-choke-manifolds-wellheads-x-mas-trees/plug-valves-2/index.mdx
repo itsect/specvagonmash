@@ -3,7 +3,7 @@ title : "Пробковые клапаны"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './plug-valves-2.png';
 
 **А. Особенности конструкции**
@@ -24,4 +24,4 @@ import image from './plug-valves-2.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

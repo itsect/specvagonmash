@@ -3,7 +3,7 @@ title : "Единый компонент заканчивания"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './single-completion-component.png';
 
 PARVEEN также производит различные виды частых добавок в соответствии с API-6A или спецификацией заказчика.
@@ -14,4 +14,4 @@ PARVEEN также производит различные виды частых
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

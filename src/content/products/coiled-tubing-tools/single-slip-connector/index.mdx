@@ -3,7 +3,7 @@ title : "Одинарный скользящий соединитель"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './single-slip-connector.png';
 
 **Функции**
@@ -15,4 +15,4 @@ import image from './single-slip-connector.png';
 *  Двойные уплотнения связаны с увеличением давления.
 
 <br />
-<Image src={image} />
+<Image src={image} alt={''} />

@@ -3,7 +3,7 @@ title : "Циркуляционная головка"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './circulating-head.png';
 
 Циркуляционная головка PARVEEN в основном состоит из
@@ -33,4 +33,4 @@ III. Нижнее переходное соединение, имеющее од
 – Соединения циркуляционного шланга (наружная или внутренняя трубная резьба)
 
 <br />
-<Image src={image} />
+<Image src={image} alt={''} />

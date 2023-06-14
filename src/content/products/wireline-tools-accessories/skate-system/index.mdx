@@ -3,7 +3,7 @@ title : "Скейт-система"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './skate-system.png';
 
 Скейт-система PARVEEN транспортирует инструментальную колонну в наклонные скважины. Преимущества включают непрерывный контактный круг со стенкой трубы в изменении положения и снижении.
@@ -17,4 +17,4 @@ import image from './skate-system.png';
 * Минимальное применение: два конька на инструментальную струну, в зависимости от применения.
 
 <br />
-<Image src={image} />
+<Image src={image} alt={''} />

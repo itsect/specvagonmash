@@ -3,7 +3,7 @@ title : "Инструменты размещения HD TP"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './hd-tp-positioning-tools.png';
 
 Используются положения в кабеле для получения выборочного определения определения оправки, когда в скважине установлены две или более оправки. Инструмент ориентируется в правильном положении и смещает клапан (или инструмент для вытягивания положения) в над гнездом для установки или извлечения.
@@ -29,4 +29,4 @@ import image from './hd-tp-positioning-tools.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

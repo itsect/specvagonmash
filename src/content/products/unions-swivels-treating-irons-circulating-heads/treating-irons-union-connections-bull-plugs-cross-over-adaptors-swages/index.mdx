@@ -3,7 +3,7 @@ title : "Утюги для обработки, соединительные му
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './treating-irons-union-connections-bull-plugs-cross-over-adaptors-swages.png';
 
 **Лечение утюгов**
@@ -26,4 +26,4 @@ import image from './treating-irons-union-connections-bull-plugs-cross-over-adap
 
 
 <br />
-<Image src={image} />
+<Image src={image} alt={''} />

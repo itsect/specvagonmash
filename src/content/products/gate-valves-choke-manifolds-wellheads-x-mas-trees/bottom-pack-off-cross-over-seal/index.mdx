@@ -3,7 +3,7 @@ title : "Нижняя упаковка с перекрестным произв�
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './bottom-pack-off-cross-over-seal.png';
 
 Стандартная **нижняя упаковка – выключена типа «ПБП1».**
@@ -18,4 +18,4 @@ import image from './bottom-pack-off-cross-over-seal.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

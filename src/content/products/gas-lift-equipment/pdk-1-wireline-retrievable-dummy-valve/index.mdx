@@ -3,7 +3,7 @@ title : "Заглушка извлекаемая на тросе ПДК-1"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './pdk-1-wireline-retrievable-dummy-valve.png';
 
 Извлекаемые ложные клапаны PARVEEN (PDK-1) на тросе имеют 2 комплекта уплотнений, которые вводятся в отверстие оправки бокового кармана и изолируют порты обсадной колонны между НКТ и кольцевым пространством обсадной колонны. Другими словами, клапаны используются для предотвращения возникновения между насосно-компрессорной трубной и обсадной колонной.
@@ -12,4 +12,4 @@ import image from './pdk-1-wireline-retrievable-dummy-valve.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

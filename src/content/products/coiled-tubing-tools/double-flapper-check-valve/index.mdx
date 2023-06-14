@@ -3,7 +3,7 @@ title : "Двойной обратный клапан"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './double-flapper-check-valve.png';
 
 Обратный клапан с двойной заслонкой — это стандартный обратный клапан, наличие в стандартном обратном клапане, наличие в большинстве операций ГНКТ. Он расположен близко к верхней части колонны ГНКТ, ниже соединителя, чтобы обеспечить контроль барьера скважины внутри ГНКТ против ствола скважины.
@@ -22,4 +22,4 @@ import image from './double-flapper-check-valve.png';
 * Картридж с потреблением (тефлоновое потребление газа и потребление металла к высокому давлению металла).
 
 <br />
-<Image src={image} />
+<Image src={image} alt={'Двойной обратный клапан'} />

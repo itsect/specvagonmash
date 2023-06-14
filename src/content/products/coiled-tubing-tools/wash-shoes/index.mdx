@@ -3,7 +3,7 @@ title : "Стирать обувь"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './wash-shoes.png';
 
 **Приложения:**
@@ -18,4 +18,4 @@ import image from './wash-shoes.png';
 *  Доступны несколько конфигураций портов и направлений.
 
 <br />
-<Image src={image} />
+<Image src={image} alt={''} />

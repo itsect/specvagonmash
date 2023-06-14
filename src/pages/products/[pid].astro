@@ -1,5 +1,5 @@
 ---
-import {Image} from '@astrojs/image/components';
+import { Image } from 'astro:assets'
 import {getCollection, getEntry} from 'astro:content';
 import ProductsLayout from '../../layouts/products.astro';
 
@@ -26,17 +26,6 @@ const {title} = Astro.props;
 
 const allProducts = await getCollection('products');
 const productsList = allProducts.filter(product => product.slug.includes(pid))
-
-productsList.map(product => {
-    const image_source_path = '/src/content/products/' + pid + '/' + product.slug.split('/').slice(1).join('/') + '/' + product.slug.split('/').slice(1).join('/') + '-product.png';
-    if (product.data.has_featured_image) {
-        product.data.featured_image = import(image_source_path)
-    }
-
-    return product
-})
-
-
 ---
 <ProductsLayout>
 
@@ -101,39 +90,32 @@ productsList.map(product => {
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {productsList.map(product => {
                     return (
-                            <a href={'/products/' + product.slug}
-                               class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 hover:bg-gray-50">
-                                {product.data.has_featured_image && (
-                                        <div class="flex-shrink-0">
-                                            <Image class="h-20 w-20 rounded-full"
-                                                   aspectRatio="1:1"
-                                                   width="80"
-                                                   height="80"
-                                                   position="top"
-                                                   src={product.data.featured_image}
-                                                   format={'png'}
-                                                   alt=""/>
+                                <a href={'/products/' + product.slug}
+                                   class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 hover:bg-gray-50">
+                                    {product.data.has_featured_image && (
+                                            <div class="flex-shrink-0">
+
+                                            </div>
+                                    )}
+                                    <div class="min-w-0 flex-1">
+                                        <div class="focus:outline-none">
+                                            <span class="absolute inset-0" aria-hidden="true"></span>
+                                            <p class="truncate text-sm font-medium text-indigo-600 text-sm font-medium">{product.data.title}</p>
                                         </div>
-                                )}
-                                <div class="min-w-0 flex-1">
-                                    <div class="focus:outline-none">
-                                        <span class="absolute inset-0" aria-hidden="true"></span>
-                                        <p class="truncate text-sm font-medium text-indigo-600 text-sm font-medium">{product.data.title}</p>
                                     </div>
-                                </div>
-                                <div>
-                                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                              clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-                            </a>
-                        )
+                                    <div>
+                                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                                  clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                            )
                         }
-                        )}
-                        </div>
-                        </div>
-                        </div>
-                        </ProductsLayout>
+                    )}
+            </div>
+        </div>
+    </div>
+</ProductsLayout>

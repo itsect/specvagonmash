@@ -3,7 +3,7 @@ title : "Пневматический запорный клапан"
 has_featured_image : false
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './pneumatic-gate-valve.png';
 
 Следующие важные данные, которые необходимо получить в ходе испытаний скважины:
@@ -25,4 +25,4 @@ import image from './pneumatic-gate-valve.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

@@ -3,7 +3,7 @@ title : "Инструменты и сервисное оборудование"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './tools-service-equipment.png';
 
 **Извлекаемая износостойкая втулка головки корпуса (PRWB)**
@@ -24,4 +24,4 @@ import image from './tools-service-equipment.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />

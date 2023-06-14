@@ -3,7 +3,7 @@ title : "Оправки боковых карманов"
 has_featured_image : true
 has_pdf: true
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import image from './side-pocket-mandrels.png';
 
 
@@ -27,4 +27,4 @@ import image from './side-pocket-mandrels.png';
 
 <br />
 
-<Image src={image} />
+<Image src={image} alt={''} />
