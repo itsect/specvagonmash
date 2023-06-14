@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 const {slug} = Astro.params;
 
 const categoryCollection = await getCollection('categories')
-const category = categoryCollection.find((category) => category.slug === slug.split('/').slice(0, 1).join('/'));
+const category = categoryCollection.find((category) => category.slug === slug.replace('/specvagonmash/', '').split('/').slice(0, 1).join('/'));
 // import { getEntry } from "astro:content";
 
 
