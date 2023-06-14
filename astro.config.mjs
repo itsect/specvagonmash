@@ -13,7 +13,7 @@ import node from '@astrojs/node';
 
 
 export default defineConfig({
-    site: 'https://itsect.github.io',
+    site: 'https://itsect.github.io/specvagonmash',
     integrations: [mdx(), sitemap(), preact(), tailwind()],
     output: 'static',
     adapter: node({
