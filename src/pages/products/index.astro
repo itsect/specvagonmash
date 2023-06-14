@@ -1,8 +1,20 @@
 ---
+import {Image} from '@astrojs/image/components';
+
 import {getCollection, getEntry} from 'astro:content';
 import ProductsLayout from '../../layouts/products.astro';
 
-const allProducts = await getCollection('products');
+const allCategories = await getCollection('categories');
+
+allCategories.map(category => {
+    const image_source_path = '/src/content/categories/' + category.slug + '/' + category.slug + '.png';
+
+    if (category.data.featured_image) {
+        category.data.featured_image = import(/* @vite-ignore */image_source_path)
+    }
+
+    return category
+})
 ---
 <ProductsLayout>
     <div class="bg-white">
@@ -21,8 +33,11 @@ const allProducts = await getCollection('products');
                             <li>
                                 <div>
                                     <a href="/" class="text-gray-400 hover:text-gray-500">
-                                        <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" />
+                                        <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                  d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
+                                                  clip-rule="evenodd"/>
                                         </svg>
                                         <span class="sr-only">Home</span>
                                     </a>
@@ -31,194 +46,53 @@ const allProducts = await getCollection('products');
 
                             <li>
                                 <div class="flex items-center">
-                                    <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                                    <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                              clip-rule="evenodd"/>
                                     </svg>
-                                    <a href="/products" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
+                                    <a href="/products"
+                                       class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
                                 </div>
                             </li>
                         </ol>
                     </nav>
 
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/gate-valves-choke-manifolds-wellheads-x-mas-trees/" title="Задвижки, дроссельные манифольды, устья скважин, рождественские елки">
-                                    Задвижки, дроссельные манифольды, устья скважин, рождественские елки
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">The Drawstring Canister is water and tear resistant with durable canvas construction. This bag holds up to the demands of daily use while keeping your snacks secure.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/gate-valves-choke-manifolds-wellheads-x-mas-trees/" title="Задвижки, Дроссельные манифольды, Устья скважин, Рождественские елки">
-                                    <img src="/src/assets/products/_categories/gate-valves-choke-manifolds-wellheads-x-mas-trees.png" alt="Задвижки, Дроссельные манифольды, Устья скважин, Рождественские елки" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    {allCategories.sort((a, b) => {
+                        return a.data.id - b.data.id;
+                    }).map(category => {
+                        return (
+                                <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
+                                    <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
+                                        <h3 class="text-lg font-medium text-gray-900">
+                                            <a href={'/products/' + category.slug} title={category.data.title}>
+                                                {category.data.title}
+                                            </a>
+                                        </h3>
 
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/unions-swivels-treating-irons-circulating-heads/" title="Соединения, вертлюги, аппараты для обработки и циркуляционных головок">
-                                    Соединения, вертлюги, аппараты для обработки и циркуляционных головок
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">Everything you need, nothing you don&#039;t. This bag has the simple, contemporary design that enables you to tell everyone you know about how essentialism is the only rational way to live life.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/unions-swivels-treating-irons-circulating-heads/" title="Соединения, вертлюги, аппараты для обработки и циркуляционных головок">
-                                    <img src="/src/assets/products/_categories/unions-swivels-treating-irons-circulating-heads.png" alt="Соединения, вертлюги, аппараты для обработки и циркуляционных головок" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                                        {false && (
+                                            <p class="mt-2 text-sm text-gray-500">The Drawstring Canister is water and tear resistant with durable canvas construction. This bag holds up to the demands of daily use while keeping your snacks secure.</p>
+                                        )}
 
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/tubulars-drilling-workover-tools-cementing-equipment/" title="Нефтепромысловые трубы, Инструменты для бурения и капитального ремонта, Оборудование для цементирования">
-                                    Нефтепромысловые трубы, Инструменты для бурения и капитального ремонта, Оборудование для цементирования
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">Never lose your snacks again with our patent-pending snack stash pocket system. With dedicated pouches for each of your snacking needs, the Drawstring Canister unlocks new levels of efficiency and convenience.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/tubulars-drilling-workover-tools-cementing-equipment/" title="Нефтепромысловые трубы, Инструменты для бурения и капитального ремонта, Оборудование для цементирования">
-                                    <img src="/src/assets/products/_categories/tubulars-drilling-workover-tools-cementing-equipment.png" alt="Нефтепромысловые трубы, Инструменты для бурения и капитального ремонта, Оборудование для цементирования" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/surface-pressure-control-equipment/" title="Оборудование для контроля взрывного давления">
-                                    Оборудование для контроля взрывного давления
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">Never lose your snacks again with our patent-pending snack stash pocket system. With dedicated pouches for each of your snacking needs, the Drawstring Canister unlocks new levels of efficiency and convenience.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/surface-pressure-control-equipment/" title="Оборудование для контроля взрывного давления">
-                                    <img src="/src/assets/products/_categories/surface-pressure-control-equipment.png" alt="Оборудование для контроля взрывного давления" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/coiled-tubing-tools/" title="Инструменты для ГНКТ">
-                                    Инструменты для ГНКТ
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">Never lose your snacks again with our patent-pending snack stash pocket system. With dedicated pouches for each of your snacking needs, the Drawstring Canister unlocks new levels of efficiency and convenience.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/coiled-tubing-tools/" title="Инструменты для ГНКТ">
-                                    <img src="/src/assets/products/_categories/coiled-tubing-tools.png" alt="Инструменты для ГНКТ" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/coiled-tubing-tools/" title="Инструменты и аксессуары для троса">
-                                    Инструменты и аксессуары для троса
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">Never lose your snacks again with our patent-pending snack stash pocket system. With dedicated pouches for each of your snacking needs, the Drawstring Canister unlocks new levels of efficiency and convenience.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/coiled-tubing-tools/" title="Инструменты и аксессуары для троса">
-                                    <img src="/src/assets/products/_categories/wireline-tools-accessories.png" alt="Инструменты и аксессуары для троса" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/completion-equipment/" title="Оборудование для окончаний">
-                                    Оборудование для окончаний
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">Never lose your snacks again with our patent-pending snack stash pocket system. With dedicated pouches for each of your snacking needs, the Drawstring Canister unlocks new levels of efficiency and convenience.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/completion-equipment/" title="Оборудование для окончаний">
-                                    <img src="/src/assets/products/_categories/completion-equipment.png" alt="Оборудование для окончаний" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/flow-control-equipment/" title="Оборудование для управления потоком">
-                                    Оборудование для управления потоком
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">Never lose your snacks again with our patent-pending snack stash pocket system. With dedicated pouches for each of your snacking needs, the Drawstring Canister unlocks new levels of efficiency and convenience.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/flow-control-equipment/" title="Оборудование для управления потоком">
-                                    <img src="/src/assets/products/_categories/flow-control-equipment.png" alt="Оборудование для управления потоком" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/gas-lift-equipment/" title="Газлифтное оборудование">
-                                    Газлифтное оборудование
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">Never lose your snacks again with our patent-pending snack stash pocket system. With dedicated pouches for each of your snacking needs, the Drawstring Canister unlocks new levels of efficiency and convenience.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/gas-lift-equipment/" title="Газлифтное оборудование">
-                                    <img src="/src/assets/products/_categories/gas-lift-equipment.png" alt="Газлифтное оборудование" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
-                        <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                <a href="/products/calibration-of-gaslift-valves/" title="Калибровка газлифтных клапанов">
-                                    Калибровка газлифтных клапанов
-                                </a>
-                            </h3>
-                            <!--<p class="mt-2 text-sm text-gray-500">Never lose your snacks again with our patent-pending snack stash pocket system. With dedicated pouches for each of your snacking needs, the Drawstring Canister unlocks new levels of efficiency and convenience.</p>-->
-                        </div>
-                        <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                            <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                <a href="/products/calibration-of-gaslift-valves/" title="Калибровка газлифтных клапанов">
-                                    <img src="/src/assets/products/_categories/calibration-of-gaslift-valves.png" alt="Калибровка газлифтных клапанов" class="object-cover object-center" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                                    </div>
+                                    <div class="flex-auto lg:col-span-7 xl:col-span-8">
+                                        <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
+                                            <a href="/products/gate-valves-choke-manifolds-wellheads-x-mas-trees/"
+                                               title={category.data.title}>
+                                                <Image class=""
+                                                       aspectRatio="1:1"
+                                                       width="800"
+                                                       height="320"
+                                                       src={category.data.featured_image}
+                                                       format={'png'}
+                                                       alt={category.data.title}/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                        )
+                    })}
 
                 </div>
             </div>
