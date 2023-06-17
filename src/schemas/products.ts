@@ -4,5 +4,5 @@ export const productsSchema = ({ image }) => z.object({
     title: z.string(),
     description: z.string().optional(),
     group: z.string().optional(),
-    featured_image: image()
+    image: image().optional()
 })

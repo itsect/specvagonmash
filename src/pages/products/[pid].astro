@@ -27,6 +27,15 @@ const {title} = Astro.props;
 
 const allProducts = await getCollection('products');
 const productsList = allProducts.filter(product => product.slug.includes(pid))
+
+// productsList.map(product => {
+//     const image_source_path = '/src/content/products/' + pid + '/' + product.slug.split('/').slice(1).join('/') + '/' + product.slug.split('/').slice(1).join('/') + '-product.png';
+//     if (product.data.has_featured_image) {
+//         product.data.featured_image = import(image_source_path)
+//     }
+//
+//     return product
+// })
 ---
 <ProductsLayout>
 
@@ -92,11 +101,11 @@ const productsList = allProducts.filter(product => product.slug.includes(pid))
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {productsList.map(product => {
                     return (
-                                <a href={new URL(product.slug, 'https://itsect.github.io/specvagonmash/products/')}
+                                <a href={new URL(product.slug, 'http://localhost:3000/products/' + pid)}
                                    class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 hover:bg-gray-50">
                                     {product.data.has_featured_image && (
                                             <div class="flex-shrink-0">
-
+                                                
                                             </div>
                                     )}
                                     <div class="min-w-0 flex-1">
