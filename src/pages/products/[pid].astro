@@ -58,64 +58,64 @@ const product_images = await Astro.glob('../../content/products/**/*-product.png
         </div>
     </div>
 
-    <div class="mx-auto max-w-7xl py-6 sm:py-6 sm:px-2 lg:px-4 px-4">
+    <div class="bg-gray-50">
+        <div class="mx-auto max-w-7xl py-6 sm:py-6 sm:px-2 lg:px-4 px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol role="list" class="flex items-center space-x-4">
+                    <li>
+                        <div>
+                            <a href={new URL('http://itsect.github.io/specvagonmash/')} class="text-blue-500 hover:text-blue-700">
+                                <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 20 20"
+                                     fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                          d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                                <span class="sr-only">Главная страница</span>
+                            </a>
+                        </div>
+                    </li>
 
-        <nav class="flex" aria-label="Breadcrumb">
-            <ol role="list" class="flex items-center space-x-4">
-                <li>
-                    <div>
-                        <a href={new URL('http://itsect.github.io/specvagonmash/products/')} class="text-gray-400 hover:text-gray-500">
-                            <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 20 20"
-                                 fill="currentColor" aria-hidden="true">
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd"
-                                      d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
+                                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <span class="sr-only">Главная страница</span>
-                        </a>
-                    </div>
-                </li>
+                            <a href={new URL('http://itsect.github.io/specvagonmash/products')}
+                               class="ml-4 text-sm font-medium text-blue-500 hover:text-blue-700">Продукция</a>
+                        </div>
+                    </li>
 
-                <li>
-                    <div class="flex items-center">
-                        <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                  clip-rule="evenodd"/>
-                        </svg>
-                        <a href={new URL('http://itsect.github.io/specvagonmash/products/products')}
-                           class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
-                    </div>
-                </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                      clip-rule="evenodd"/>
+                            </svg>
+                            <span class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+                               aria-current="page" title={title}>{title}</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
 
-                <li>
-                    <div class="flex items-center">
-                        <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                  d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                  clip-rule="evenodd"/>
-                        </svg>
-                        <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
-                           aria-current="page" title={title}>{title}</a>
-                    </div>
-                </li>
-            </ol>
-        </nav>
+            <div class="mt-10 space-y-6 border-t border-gray-200 pt-4 sm:mt-6 sm:pt-4 px-4">
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    {productsList.map(product => {
 
-        <div class="mt-10 space-y-6 border-t border-gray-200 pt-4 sm:mt-6 sm:pt-4 px-4">
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {productsList.map(product => {
+                        const product_image = product_images.find(image => {
+                            return image.default.src.includes(product.slug)
+                        });
 
-                    const product_image = product_images.find(image => {
-                        return image.default.src.includes(product.slug)
-                    });
-
-                    return (
-                                <a href={new URL(product.slug, 'http://itsect.github.io/specvagonmash/products/products/' + pid)}
-                                   class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 hover:bg-gray-50">
+                        return (
+                                <a href={new URL(product.slug, 'http://itsect.github.io/specvagonmash/products/' + pid)}
+                                   class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-blue-500 hover:bg-gray-50">
                                     {(product_image && product.data.has_featured_image) && (
                                             <div class="flex-shrink-0">
                                                 <Image width={40} height={40} aspectRatio={'16:9'} position={'top'} src={product_image?.default} alt={product.data.title} />
@@ -124,7 +124,7 @@ const product_images = await Astro.glob('../../content/products/**/*-product.png
                                     <div class="min-w-0 flex-1">
                                         <div class="focus:outline-none">
                                             <span class="absolute inset-0" aria-hidden="true"></span>
-                                            <p class="truncate text-sm font-medium text-indigo-600 text-sm font-medium">{product.data.title}</p>
+                                            <p class="truncate text-sm font-medium text-gray-500 text-sm font-medium">{product.data.title}</p>
                                         </div>
                                     </div>
                                     <div>
@@ -136,10 +136,11 @@ const product_images = await Astro.glob('../../content/products/**/*-product.png
                                         </svg>
                                     </div>
                                 </a>
-                            )
-                        }
-                    )}
+                            )}
+                        )}
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
+
 </ProductsLayout>

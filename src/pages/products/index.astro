@@ -9,7 +9,7 @@ const categories_images = await Astro.glob('../../content/categories/**/*.png');
 
 ---
 <ProductsLayout>
-    <div class="bg-white">
+    <div class="bg-gray-50">
         <div class="mx-auto max-w-7xl py-24 sm:py-32 sm:px-2 lg:px-4">
             <div class="mx-auto max-w-2xl px-4 lg:max-w-none">
                 <div class="max-w-3xl">
@@ -24,7 +24,7 @@ const categories_images = await Astro.glob('../../content/categories/**/*.png');
                         <ol role="list" class="flex items-center space-x-4">
                             <li>
                                 <div>
-                                    <a href={new URL('http://itsect.github.io/specvagonmash/products')} class="text-gray-400 hover:text-gray-500">
+                                    <a href={new URL('http://itsect.github.io/specvagonmash')} class="text-blue-500 hover:text-blue-700">
                                         <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                                              viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
@@ -44,8 +44,7 @@ const categories_images = await Astro.glob('../../content/categories/**/*.png');
                                               d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                               clip-rule="evenodd"/>
                                     </svg>
-                                    <a href={new URL('http://itsect.github.io/specvagonmash/products/products')}
-                                       class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
+                                    <span class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</span>
                                 </div>
                             </li>
                         </ol>
@@ -64,15 +63,15 @@ const categories_images = await Astro.glob('../../content/categories/**/*.png');
 
                                     <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
                                         <h3 class="text-lg font-medium text-gray-900">
-                                            <a href={'http://itsect.github.io/specvagonmash/products/products/' + category.slug} title={category.data.title}>
+                                            <a class="text-gray-500" href={'http://itsect.github.io/specvagonmash/products/' + category.slug} title={category.data.title}>
                                                 {category.data.title}
                                             </a>
                                         </h3>
                                     </div>
 
                                     <div class="flex-auto lg:col-span-7 xl:col-span-8">
-                                        <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
-                                            <a href={new URL(category.slug, 'http://itsect.github.io/specvagonmash/products/products/')}
+                                        <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm hover:border-blue-500">
+                                            <a href={new URL(category.slug, 'http://itsect.github.io/specvagonmash/products/')}
                                                title={category.data.title}>
                                                 <Image width="800" height="320"
                                                        aspectRatio="1:1"
