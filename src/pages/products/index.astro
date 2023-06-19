@@ -44,7 +44,7 @@ const categories_images = await Astro.glob('../../content/categories/**/*.png');
                                               d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                               clip-rule="evenodd"/>
                                     </svg>
-                                    <a href={new URL('/products', 'https://itsect.github.io/specvagonmash')}
+                                    <a href={new URL('https://itsect.github.io/specvagonmash/products')}
                                        class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
                                 </div>
                             </li>
@@ -61,14 +61,15 @@ const categories_images = await Astro.glob('../../content/categories/**/*.png');
 
                         return (
                                 <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
+
                                     <div class="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
                                         <h3 class="text-lg font-medium text-gray-900">
                                             <a href={'https://itsect.github.io/specvagonmash/products/' + category.slug} title={category.data.title}>
                                                 {category.data.title}
                                             </a>
                                         </h3>
-
                                     </div>
+
                                     <div class="flex-auto lg:col-span-7 xl:col-span-8">
                                         <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100 border-gray-300 border shadow-sm">
                                             <a href={new URL(category.slug, 'https://itsect.github.io/specvagonmash/products/')}

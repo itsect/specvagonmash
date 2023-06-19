@@ -7,6 +7,7 @@ import ProductsLayout from '../../layouts/products.astro';
 export async function getStaticPaths() {
 
     const allProducts = await getCollection('products');
+    const product_images = await Astro.glob('../../content/products/**/*-product.png');
 
     return allProducts.map((product) => {
         return {
@@ -14,13 +15,17 @@ export async function getStaticPaths() {
                 slug: product.slug
             },
             props: {
-                title: product.data.title
+                title: product.data.title,
+                image : product_images.find(image => {
+                    return image.default.src.includes(product.slug)
+                })
             }
         };
     });
 }
 
 const {slug} = Astro.params;
+const {image} = Astro.props;
 
 const categoryCollection = await getCollection('categories')
 const category = categoryCollection.find((category) => category.slug === slug.split('/').slice(0, 1).join('/'));
@@ -40,12 +45,6 @@ if (entry === undefined) {
 }
 
 const { Content } = await entry.render();
-
-const product_images = await Astro.glob('../../content/products/**/*-product.png');
-
-const product_image = product_images.find(async image => {
-    return await image.default.src.includes(entry.slug)
-});
 
 ---
 <ProductsLayout>
@@ -124,13 +123,15 @@ const product_image = product_images.find(async image => {
             </div>
 
             <!-- Product image -->
-            <div class="mt-4 lg:row-span-3 lg:mt-0">
-                <div class="aspect-w-1 aspect-h-1 rounded-lg">
-                    {entry.data?.has_featured_image && (
-                            <Image aspectRatio={'16:9'} position={'top'} src={product_image.default} alt={entry.data.title} />
-                    )}
+            {image &&
+                <div class="mt-4 lg:row-span-3 lg:mt-0">
+                    <div class="aspect-w-1 aspect-h-1 rounded-lg">
+                        {image && entry.data?.has_featured_image && (
+                                <Image aspectRatio={'16:9'} position={'top'} src={image.default} alt={entry.data.title} />
+                        )}
+                    </div>
                 </div>
-            </div>
+            }
 
             <!-- Product details -->
             <div class="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8">
