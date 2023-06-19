@@ -1,6 +1,356 @@
 ---
+import { Image } from 'astro:assets'
 import Index from '../layouts/index.astro';
+
+import oil_gas_equipment from '../assets/oil_gas_equipment.jpg'
+import oil_gas_cooperation_benefits from '../assets/oil_gas_cooperation_benefits.jpg'
+
+import gazprom from '../assets/logos/gazprom.svg'
+import lukoil from '../assets/logos/lukoil.svg'
+import tatneft from '../assets/logos/tatneft.svg'
+import rosneft from '../assets/logos/rosneft.svg'
+import mobil from '../assets/logos/mobil.svg'
+import surgutneftegas from '../assets/logos/surgutneftegas.svg'
+
 ---
 <Index>
+    <div class="bg-gray-50">
 
+        <div class="relative bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto relative">
+                <div class="absolute inset-y-0 h-full w-full z-20 pointer-events-none" aria-hidden="true">
+                    <div class="relative h-full">
+                        <svg class="absolute right-full transform translate-y-1/3 translate-x-1/4 md:translate-y-1/2 sm:translate-x-1/2 lg:translate-x-full" width="404" height="784" fill="none" viewBox="0 0 404 784">
+                            <defs>
+                                <pattern id="e229dbec-10e9-49ee-8ec3-0286ca089edf" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                                </pattern>
+                            </defs>
+                            <rect width="404" height="784" fill="url(#e229dbec-10e9-49ee-8ec3-0286ca089edf)" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                    <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                        <polygon points="50,0 100,0 50,100 0,100" />
+                    </svg>
+
+                    <main class="pt-10 mx-auto max-w-7xl px-4 sm:pt-12 sm:px-6 md:pt-16 lg:pt-20 lg:px-8 xl:pt-28">
+                        <div class="sm:text-center lg:text-left">
+                            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-5xl">
+                                <span class="block xl:inline">Нефтегазовое оборудование</span>
+                            </h1>
+                            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">СПЕЦВАГОНСНАБ – российская компания, являющаяся официальным дилером Parveen</p>
+                            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                                <a href={new URL('https://itsect.github.io/specvagonmash/products//products')} class="inline-block text-center bg-blue-500 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-blue-700">Наша продукция</a>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+                <Image class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src={oil_gas_equipment} alt="" />
+            </div>
+        </div>
+
+        <div class="py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:text-center">
+                    <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Наши услуги</p>
+                    <p class="mt-4 max-w-3xl text-xl text-gray-500 lg:mx-auto">Выбирая СПЕЦВАГОНСНАБ в качестве поставщика, наши партнёры получают полный ассортимент оборудования, производимого компанией Parveen</p>
+                </div>
+
+                <div class="mt-10">
+                    <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                        <div class="relative">
+                            <dt>
+                                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                                    <!-- Heroicon name: outline/globe-alt -->
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                    </svg>
+                                </div>
+                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Бесперебойные поставки</p>
+                            </dt>
+                            <dd class="mt-2 ml-16 text-base text-gray-500">Обеспечение бесперебойных поставок широкого ассортимента оборудования, отвечающего мировым стандартам отрасли</dd>
+                        </div>
+
+                        <div class="relative">
+                            <dt>
+                                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                                    <!-- Heroicon name: outline/scale -->
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                    </svg>
+                                </div>
+                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Контроль качества</p>
+                            </dt>
+                            <dd class="mt-2 ml-16 text-base text-gray-500">Проведение многофакторного контроля качества, включающего тестирование оборудования на соответствие требуемым параметрам</dd>
+                        </div>
+
+                        <div class="relative">
+                            <dt>
+                                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                                    <!-- Heroicon name: outline/lightning-bolt -->
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Гарантия</p>
+                            </dt>
+                            <dd class="mt-2 ml-16 text-base text-gray-500">Соблюдение гарантийных обязательств производителя</dd>
+                        </div>
+
+                        <div class="relative">
+                            <dt>
+                                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                                    <!-- Heroicon name: outline/annotation -->
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                                    </svg>
+                                </div>
+                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Лицензии</p>
+                            </dt>
+                            <dd class="mt-2 ml-16 text-base text-gray-500">Оборудование производится в соответствии со стандартами Американского института нефти</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative bg-white">
+            <div class="h-56 bg-indigo-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">
+                <Image class="w-full h-full object-cover" src={oil_gas_cooperation_benefits} alt="Выгода от сотрудничества" />
+                <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <polygon points="50,0 100,0 50,100 0,100" />
+                </svg>
+            </div>
+            <div class="relative max-w-7xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16">
+                <div class="max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">
+                    <h2 class="mt-6 text-3xl font-extrabold text-gray-900 sm:text-4xl">Выгодное сотрудничество</h2>
+                    <p class="mt-6 text-lg text-gray-500">Мы предоставляем прозрачную цепочку поставок, а также обеспечение полного входящего контроля качества, сервисное и гарантийное обслуживание всего поставляемого оборудования.</p>
+                    <div class="mt-8 overflow-hidden">
+                        <dl class="-mx-8 -mt-8 flex flex-wrap">
+                            <div class="flex flex-col px-8 pt-8">
+                                <dt class="order-2 text-base font-medium text-gray-500">Доставка</dt>
+                                <dd class="order-1 text-2xl font-extrabold text-blue-500 sm:text-3xl">24/7</dd>
+                            </div>
+                            <div class="flex flex-col px-8 pt-8">
+                                <dt class="order-2 text-base font-medium text-gray-500">Качество</dt>
+                                <dd class="order-1 text-2xl font-extrabold text-blue-500 sm:text-3xl">99.9%</dd>
+                            </div>
+                            <div class="flex flex-col px-8 pt-8">
+                                <dt class="order-2 text-base font-medium text-gray-500">Продукция</dt>
+                                <dd class="order-1 text-2xl font-extrabold text-blue-500 sm:text-3xl">300+</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero section -->
+        <!--<div class="relative overflow-hidden">-->
+        <!--    <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">-->
+        <!--        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">-->
+        <!--            <div class="sm:max-w-lg">-->
+        <!--                <h1 class="text-3xl font font-extrabold tracking-tight text-gray-900 sm:text-5xl">Нефтегазовое оборудование</h1>-->
+        <!--                <p class="mt-4 text-xl text-gray-500">СПЕЦВАГОНСНАБ – российская компания, являющаяся официальным дилером Parveen</p>-->
+        <!--            </div>-->
+        <!--            <div>-->
+        <!--                <div class="mt-10">-->
+        <!--                    &lt;!&ndash; Decorative image grid &ndash;&gt;-->
+        <!--                    <div aria-hidden="true" class="pointer-events-none lg:absolute lg:inset-y-0 lg:max-w-7xl lg:mx-auto lg:w-full">-->
+        <!--                        <div class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">-->
+        <!--                            <div class="flex items-center space-x-6 lg:space-x-8">-->
+        <!--                                <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">-->
+        <!--                                    <div class="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">-->
+        <!--                                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" alt="" class="w-full h-full object-center object-cover">-->
+        <!--                                    </div>-->
+        <!--                                    <div class="w-44 h-64 rounded-lg overflow-hidden">-->
+        <!--                                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg" alt="" class="w-full h-full object-center object-cover">-->
+        <!--                                    </div>-->
+        <!--                                </div>-->
+        <!--                                <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">-->
+        <!--                                    <div class="w-44 h-64 rounded-lg overflow-hidden">-->
+        <!--                                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg" alt="" class="w-full h-full object-center object-cover">-->
+        <!--                                    </div>-->
+        <!--                                    <div class="w-44 h-64 rounded-lg overflow-hidden">-->
+        <!--                                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg" alt="" class="w-full h-full object-center object-cover">-->
+        <!--                                    </div>-->
+        <!--                                    <div class="w-44 h-64 rounded-lg overflow-hidden">-->
+        <!--                                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg" alt="" class="w-full h-full object-center object-cover">-->
+        <!--                                    </div>-->
+        <!--                                </div>-->
+        <!--                                <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">-->
+        <!--                                    <div class="w-44 h-64 rounded-lg overflow-hidden">-->
+        <!--                                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg" alt="" class="w-full h-full object-center object-cover">-->
+        <!--                                    </div>-->
+        <!--                                    <div class="w-44 h-64 rounded-lg overflow-hidden">-->
+        <!--                                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg" alt="" class="w-full h-full object-center object-cover">-->
+        <!--                                    </div>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+
+        <!--                    <a href={new URL('https://itsect.github.io/specvagonmash/products//products')} class="inline-block text-center bg-blue-500 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-blue-700">Наша продукция</a>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Testimonial/stats section &ndash;&gt;-->
+        <!--<div class="relative mt-20 bg-white">-->
+        <!--    <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">-->
+        <!--        <div class="relative sm:py-16 lg:py-0">-->
+        <!--            <div aria-hidden="true" class="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen">-->
+        <!--                <div class="absolute inset-y-0 right-1/2 w-full bg-gray-50 rounded-r-3xl lg:right-72"></div>-->
+        <!--                <svg class="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12" width="404" height="392" fill="none" viewBox="0 0 404 392">-->
+        <!--                    <defs>-->
+        <!--                        <pattern id="02f20b47-fd69-4224-a62a-4c9de5c763f7" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">-->
+        <!--                            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />-->
+        <!--                        </pattern>-->
+        <!--                    </defs>-->
+        <!--                    <rect width="404" height="392" fill="url(#02f20b47-fd69-4224-a62a-4c9de5c763f7)" />-->
+        <!--                </svg>-->
+        <!--            </div>-->
+        <!--            <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">-->
+        <!--                &lt;!&ndash; Testimonial card&ndash;&gt;-->
+        <!--                <div class="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">-->
+        <!--                    <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1521510895919-46920266ddb3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&fp-x=0.5&fp-y=0.6&fp-z=3&width=1440&height=1440&sat=-100" alt="">-->
+        <!--                    <div class="absolute inset-0 bg-rose-500 mix-blend-multiply"></div>-->
+        <!--                    <div class="absolute inset-0 bg-gradient-to-t from-rose-600 via-rose-600 opacity-90"></div>-->
+        <!--                    <div class="relative px-8">-->
+        <!--                        <div>-->
+        <!--                            <img class="h-12" src="https://tailwindui.com/img/logos/workcation.svg?color=white" alt="Workcation">-->
+        <!--                        </div>-->
+        <!--                        <blockquote class="mt-8">-->
+        <!--                            <div class="relative text-lg font-medium text-white md:flex-grow">-->
+        <!--                                <svg class="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-rose-400" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">-->
+        <!--                                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />-->
+        <!--                                </svg>-->
+        <!--                                <p class="relative">Tincidunt integer commodo, cursus etiam aliquam neque, et. Consectetur pretium in volutpat, diam. Montes, magna cursus nulla feugiat dignissim id lobortis amet.</p>-->
+        <!--                            </div>-->
+
+        <!--                            <footer class="mt-4">-->
+        <!--                                <p class="text-base font-semibold text-rose-200">Sarah Williams, CEO at Workcation</p>-->
+        <!--                            </footer>-->
+        <!--                        </blockquote>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+        <!--        <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">-->
+        <!--            &lt;!&ndash; Content area &ndash;&gt;-->
+        <!--            <div class="pt-12 sm:pt-16 lg:pt-20">-->
+        <!--                <h2 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">On a mission to empower teams</h2>-->
+        <!--                <div class="mt-6 text-gray-500 space-y-6">-->
+        <!--                    <p class="text-lg">Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed consectetur neque tristique pellentesque. Blandit amet, sed aenean erat arcu morbi. Cursus faucibus nunc nisl netus morbi vel porttitor vitae ut. Amet vitae fames senectus vitae.</p>-->
+        <!--                    <p class="text-base leading-7">Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet quam urna. Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet quam urna.</p>-->
+        <!--                    <p class="text-base leading-7">Rhoncus nisl, libero egestas diam fermentum dui. At quis tincidunt vel ultricies. Vulputate aliquet velit faucibus semper. Pellentesque in venenatis vestibulum consectetur nibh id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim fermentum lacus in. Viverra.</p>-->
+        <!--                </div>-->
+        <!--            </div>-->
+
+        <!--            &lt;!&ndash; Stats section &ndash;&gt;-->
+        <!--            <div class="mt-10">-->
+        <!--                <dl class="grid grid-cols-2 gap-x-4 gap-y-8">-->
+        <!--                    <div class="border-t-2 border-gray-100 pt-6">-->
+        <!--                        <dt class="text-base font-medium text-gray-500">Founded</dt>-->
+        <!--                        <dd class="text-3xl font-extrabold tracking-tight text-gray-900">2021</dd>-->
+        <!--                    </div>-->
+
+        <!--                    <div class="border-t-2 border-gray-100 pt-6">-->
+        <!--                        <dt class="text-base font-medium text-gray-500">Employees</dt>-->
+        <!--                        <dd class="text-3xl font-extrabold tracking-tight text-gray-900">5</dd>-->
+        <!--                    </div>-->
+
+        <!--                    <div class="border-t-2 border-gray-100 pt-6">-->
+        <!--                        <dt class="text-base font-medium text-gray-500">Beta Users</dt>-->
+        <!--                        <dd class="text-3xl font-extrabold tracking-tight text-gray-900">521</dd>-->
+        <!--                    </div>-->
+
+        <!--                    <div class="border-t-2 border-gray-100 pt-6">-->
+        <!--                        <dt class="text-base font-medium text-gray-500">Raised</dt>-->
+        <!--                        <dd class="text-3xl font-extrabold tracking-tight text-gray-900">$25M</dd>-->
+        <!--                    </div>-->
+        <!--                </dl>-->
+        <!--                <div class="mt-10">-->
+        <!--                    <a href="#" class="text-base font-medium text-rose-500"> Learn more about how we're changing the world&nbsp&rarr; </a>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</div>-->
+
+
+
+        <!--<div class="relative">-->
+        <!--    <div class="h-56 bg-indigo-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">-->
+        <!--        <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="Support team">-->
+        <!--    </div>-->
+        <!--    <div class="relative max-w-7xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16">-->
+        <!--        <div class="max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">-->
+        <!--            <div>-->
+        <!--                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">-->
+        <!--                    &lt;!&ndash; Heroicon name: outline/users &ndash;&gt;-->
+        <!--                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">-->
+        <!--                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />-->
+        <!--                    </svg>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <h2 class="mt-6 text-3xl font-extrabold text-gray-900 sm:text-4xl">Deliver what your customers want every time</h2>-->
+        <!--            <p class="mt-6 text-lg text-gray-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore nihil ea rerum ipsa. Nostrum consectetur sequi culpa doloribus omnis, molestiae esse placeat, exercitationem magnam quod molestias quia aspernatur deserunt voluptatibus.</p>-->
+        <!--            <div class="mt-8 overflow-hidden">-->
+        <!--                <dl class="-mx-8 -mt-8 flex flex-wrap">-->
+        <!--                    <div class="flex flex-col px-8 pt-8">-->
+        <!--                        <dt class="order-2 text-base font-medium text-gray-500">Delivery</dt>-->
+        <!--                        <dd class="order-1 text-2xl font-extrabold text-blue-500 sm:text-3xl">24/7</dd>-->
+        <!--                    </div>-->
+        <!--                    <div class="flex flex-col px-8 pt-8">-->
+        <!--                        <dt class="order-2 text-base font-medium text-gray-500">Pepperoni</dt>-->
+        <!--                        <dd class="order-1 text-2xl font-extrabold text-blue-500 sm:text-3xl">99.9%</dd>-->
+        <!--                    </div>-->
+        <!--                    <div class="flex flex-col px-8 pt-8">-->
+        <!--                        <dt class="order-2 text-base font-medium text-gray-500">Calories</dt>-->
+        <!--                        <dd class="order-1 text-2xl font-extrabold text-blue-500 sm:text-3xl">100k+</dd>-->
+        <!--                    </div>-->
+        <!--                </dl>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</div>-->
+
+        <div class="">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+                <p class="text-center text-base font-semibold uppercase text-gray-600 tracking-wider">Нам доверяют компании:</p>
+                <div class="max-w-3xl mx-auto">
+                    <div class="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
+                        <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                            <img class="max-h-16" src={gazprom.src} alt="ГазПром" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                            <img class="max-h-24" src={lukoil.src} alt="Лукоил" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                            <img class="max-h-24" src={mobil.src} alt="Mobil" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                            <img class="max-h-24" src={tatneft.src} alt="Татнефть" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                            <img class="max-h-24" src={rosneft.src} alt="Роснефть" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                            <img class="max-h-24" src={surgutneftegas.src} alt="Cургутнефтегаз" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </Index>

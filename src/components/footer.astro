@@ -2,6 +2,35 @@
 const year = new Date().getFullYear()
 ---
 
+<div class="bg-white relative overflow-hidden">
+    <div class="absolute inset-y-0 h-full w-full z-20 pointer-events-none" aria-hidden="true">
+        <div class="relative h-full">
+            <svg class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4" width="404" height="784" fill="none" viewBox="0 0 404 784">
+                <defs>
+                    <pattern id="e229dbec-10e9-49ee-8ec3-0286ca089edf" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                    </pattern>
+                </defs>
+                <rect width="404" height="784" fill="url(#e229dbec-10e9-49ee-8ec3-0286ca089edf)" />
+            </svg>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 md:py-16 lg:px-8 lg:py-12">
+        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <span class="block">Нужна консультация ?</span>
+        </h2>
+        <p class="text-xl text-gray-500">Наши специалисты подскажут и помогут</p>
+        <div class="mt-8 flex">
+            <div class="inline-flex rounded-md shadow">
+                <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700">Заказать звонок</a>
+            </div>
+            <div class="ml-3 inline-flex">
+                <a href={new URL('https://itsect.github.io/specvagonmash/products//contacts')} class="inline-flex items-center justify-center px-5 py-3 border text-base font-medium rounded-md text-gray-400 text-gray-500 hover:bg-gray-100 border-gray-300 border shadow-sm">Контакты</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="bg-gray-50" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
 
@@ -21,10 +50,10 @@ const year = new Date().getFullYear()
                         <h3 class="text-base font-medium text-gray-900">Решения</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href={new URL('http://itsect.github.io/specvagonmash/products')} class="text-base text-blue-500 hover:text-blue-700">Продукция</a>
+                                <a href={new URL('https://itsect.github.io/specvagonmash/products//products')} class="text-base text-blue-500 hover:text-blue-700">Продукция</a>
                             </li>
                             <li>
-                                <a href={new URL('http://itsect.github.io/specvagonmash/certificates')} class="text-base text-blue-500 hover:text-blue-700">Сертификаты</a>
+                                <a href={new URL('https://itsect.github.io/specvagonmash/products//certificates')} class="text-base text-blue-500 hover:text-blue-700">Сертификаты</a>
                             </li>
                         </ul>
                     </div>
@@ -34,10 +63,10 @@ const year = new Date().getFullYear()
                         <h3 class="text-base font-medium text-gray-900">Компания</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href={new URL('http://itsect.github.io/specvagonmash/about')} class="text-base text-blue-500 hover:text-blue-700">О компании</a>
+                                <a href={new URL('https://itsect.github.io/specvagonmash/products//about')} class="text-base text-blue-500 hover:text-blue-700">О компании</a>
                             </li>
                             <li>
-                                <a href={new URL('http://itsect.github.io/specvagonmash/contacts')} class="text-base text-blue-500 hover:text-blue-700">Контакты</a>
+                                <a href={new URL('https://itsect.github.io/specvagonmash/products//contacts')} class="text-base text-blue-500 hover:text-blue-700">Контакты</a>
                             </li>
                         </ul>
                     </div>
