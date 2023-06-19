@@ -11,8 +11,8 @@ import sitemap from '@astrojs/sitemap';
 
 
 export default defineConfig({
-    site: 'https://itsect.github.io',
-    base: '/specvagonmash',
+    // site: 'https://itsect.github.io',
+    // base: '/specvagonmash',
     integrations: [mdx(), sitemap(), preact(), tailwind()],
     output: 'static',
     experimental: {

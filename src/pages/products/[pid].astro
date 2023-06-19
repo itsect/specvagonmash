@@ -50,7 +50,7 @@ const product_images = await Astro.glob('../../content/products/**/*.png');
 
     <div class="relative py-24 px-6 sm:py-24 sm:px-12 lg:px-24">
         <div class="absolute inset-0 overflow-hidden bg-white">
-            <Image src={category_image.default} alt=""
+            <Image src={category_image?.default} alt=""
                  class="h-full w-full object-contain object-center" />
         </div>
         <div aria-hidden="true" class="absolute inset-0 bg-slate-700 bg-opacity-50"></div>
@@ -118,7 +118,7 @@ const product_images = await Astro.glob('../../content/products/**/*.png');
                                    class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 hover:bg-gray-50">
                                     {(product.data.has_featured_image && product_image.default) && (
                                             <div class="flex-shrink-0">
-                                                <Image width={40} height={40} aspectRatio={'16:9'} position={'top'} src={product_image.default} alt={product.data.title} />
+                                                <Image width={40} height={40} aspectRatio={'16:9'} position={'top'} src={product_image?.default} alt={product.data.title} />
                                             </div>
                                     )}
                                     <div class="min-w-0 flex-1">
