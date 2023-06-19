@@ -42,8 +42,9 @@ if (entry === undefined) {
 const { Content } = await entry.render();
 
 const product_images = await Astro.glob('../../content/products/**/*-product.png');
-const product_image = product_images.find(image => {
-    return image.default.src.includes(entry.slug)
+
+const product_image = product_images.find(async image => {
+    return await image.default.src.includes(entry.slug)
 });
 
 ---
@@ -60,7 +61,7 @@ const product_image = product_images.find(image => {
                 <ol role="list" class="flex items-center space-x-4">
                     <li>
                         <div>
-                            <a href={new URL('/', 'http://localhost:3000/')} class="text-gray-400 hover:text-gray-500">
+                            <a href={new URL('/', 'https://itsect.github.io/specvagonmash/')} class="text-gray-400 hover:text-gray-500">
                                 <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 20 20"
                                      fill="currentColor" aria-hidden="true">
@@ -81,7 +82,7 @@ const product_image = product_images.find(image => {
                                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <a href={new URL('/products/', 'http://localhost:3000/')}
+                            <a href={new URL('/products/', 'https://itsect.github.io/specvagonmash/')}
                                class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Продукция</a>
                         </div>
                     </li>
@@ -94,7 +95,7 @@ const product_image = product_images.find(image => {
                                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <a href={new URL(category.slug, 'http://localhost:3000/products/')}
+                            <a href={new URL(category.slug, 'https://itsect.github.io/specvagonmash/products/')}
                                class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 truncate"
                                aria-current="page" title={category.data.title}>{category.data.title}</a>
                         </div>
