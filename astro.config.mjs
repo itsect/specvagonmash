@@ -18,6 +18,9 @@ export default defineConfig({
     experimental: {
         assets: true
     },
+    image: {
+        service: sharpImageService(),
+    },
     vite: {
         resolve: {
             alias: {
