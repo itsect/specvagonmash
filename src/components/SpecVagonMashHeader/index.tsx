@@ -38,7 +38,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
     const $isModalOpened = useStore(isModalOpened);
 
     return (
-        <Popover className="relative bg-white border-b-2 border-gray-100 z-20">
+        <Popover className="relative bg-white border-b-2 border-gray-100 z-30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div
                     className="flex justify-between items-center py-4 lg:justify-start md:space-x-10">
