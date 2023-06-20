@@ -14,7 +14,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
     site: 'https://itsect.github.io',
     base: '/specvagonmash',
-    integrations: [react(), mdx(), sitemap(), tailwind()],
+    integrations: [react(), mdx(), sitemap(), tailwind({
+        config: { path: './tailwind.config.js' },
+    })],
     output: 'static',
     compressHTML: true,
     experimental: {
