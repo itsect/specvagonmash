@@ -27,6 +27,7 @@
     "sharp": "^0.32.1",
     "sass": "^1.63.4",
     "@headlessui/react" : "^1.7.15",
-    "@nanostores/react": "^0.7.1"
+    "@nanostores/react": "^0.7.1",
+    "postcss" : "^8.4.24"
   }
 }
