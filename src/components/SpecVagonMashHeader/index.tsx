@@ -43,7 +43,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                 <div
                     className="flex justify-between items-center py-4 lg:justify-start md:space-x-10">
                     <div className="flex justify-start lg:w-0 lg:flex-1">
-                        <a href={new URL('http://itsect.github.io/specvagonmash/products/')}>
+                        <a href={new URL('http://itsect.github.io/specvagonmash/')}>
                             <span className="sr-only">Workflow</span>
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 476.4 89.2" className={'w-auto h-12 lg:h-16 text-3xl'}>
                                 <path fill={'#A5282D'} fillRule={'evenodd'} clipRule={'evenodd'} d="M75.2,53l1.9-6.8l4.2-0.3l4.5-1.4v-3l0,0C85.8,18.6,66.5,0,42.9,0S0,18.5,0,41.4l0,0v0.1l0,0v3.1l4.5,1.4
@@ -120,7 +120,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                                             <Menu.Item key={category.id}>
                                                                 {({active}) => (
                                                                     <a
-                                                                        href={new URL('http://itsect.github.io/specvagonmash/products/products/' + category.slug)}
+                                                                        href={new URL('http://itsect.github.io/specvagonmash/products/' + category.slug)}
                                                                         className={'-m-3 p-3 flex items-start rounded-lg hover:bg-gray-100'}
                                                                     >
                                                                         <p className="mt-1 text-sm text-gray-500">{category.data.title}</p>
@@ -132,7 +132,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                                     <div
                                                         className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                                                         <div className="flow-root">
-                                                            <a href={new URL('http://itsect.github.io/specvagonmash/products/products')}
+                                                            <a href={new URL('http://itsect.github.io/specvagonmash/products')}
                                                                className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
                                                                 <svg className="flex-shrink-0 h-6 w-6 text-blue-500"
                                                                      viewBox="0 0 1024 1024"
@@ -168,12 +168,12 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                 </>
                             )}
                         </Menu>
-                        <a href={new URL('http://itsect.github.io/specvagonmash/products/about')}
+                        <a href={new URL('http://itsect.github.io/specvagonmash/about')}
                            className="whitespace-nowrap inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                             О компании
                         </a>
 
-                        <a href={new URL('http://itsect.github.io/specvagonmash/products/contacts')}
+                        <a href={new URL('http://itsect.github.io/specvagonmash/contacts')}
                            className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                             Контакты
                         </a>
@@ -197,7 +197,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                         <div className="pt-5 pb-6 px-5 border-b-2 border-gray-100">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <a href={new URL('http://itsect.github.io/specvagonmash/products/')} className={'focus:outline-none'}>
+                                    <a href={new URL('http://itsect.github.io/specvagonmash/')} className={'focus:outline-none'}>
                                         <span className="sr-only">Workflow</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 476.4 89.2" className={'w-auto h-12 lg:h-16 text-3xl'}>
                                             <path fill={'#A5282D'} fillRule={'evenodd'} clipRule={'evenodd'} d="M75.2,53l1.9-6.8l4.2-0.3l4.5-1.4v-3l0,0C85.8,18.6,66.5,0,42.9,0S0,18.5,0,41.4l0,0v0.1l0,0v3.1l4.5,1.4
@@ -240,7 +240,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                 {categories.map((category) => (
                                     <a
                                         key={'popover' + category.id}
-                                        href={new URL('http://itsect.github.io/specvagonmash/products/products/' + category.slug)}
+                                        href={new URL('http://itsect.github.io/specvagonmash/products/' + category.slug)}
                                         className="flex items-center rounded-md hover:bg-gray-50"
                                     >
                                         <span className="ml-3 text-base font-medium text-gray-900">{category.data.title}</span>
@@ -253,20 +253,20 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                 <div
                                     className="py-1">
                                     <div className="flow-root">
-                                        <a href={new URL('http://itsect.github.io/specvagonmash/products/products')}
+                                        <a href={new URL('http://itsect.github.io/specvagonmash/products')}
                                            className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                                             Вся продукция
                                         </a>
                                     </div>
                                 </div>
                                 <div className={'py-1'}>
-                                    <a href={new URL('http://itsect.github.io/specvagonmash/products/about')}
+                                    <a href={new URL('http://itsect.github.io/specvagonmash/about')}
                                        className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                                         О компании
                                     </a>
                                 </div>
                                 <div className={'py-1'}>
-                                    <a href={new URL('http://itsect.github.io/specvagonmash/products/contacts')}
+                                    <a href={new URL('http://itsect.github.io/specvagonmash/contacts')}
                                        className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                                         Контакты
                                     </a>
