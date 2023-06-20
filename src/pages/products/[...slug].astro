@@ -7,8 +7,6 @@ import ProductsLayout from '../../layouts/products.astro';
 export async function getStaticPaths() {
 
     const allProducts = await getCollection('products');
-    const product_images = await Astro.glob('../../content/products/**/*-product.png');
-    const product_pdfs = await Astro.glob('../../content/products/**/*.pdf');
 
     return allProducts.map((product) => {
         return {
@@ -16,24 +14,27 @@ export async function getStaticPaths() {
                 slug: product.slug
             },
             props: {
-                title: product.data.title,
-                image : product_images.find(image => {
-                    return image.default.src.includes(product.slug)
-                }),
-                pdf : product_pdfs.find(pdf => {
-                    return pdf.default.includes(product.slug)
-                })
+                title: product.data.title
             }
         };
     });
 }
 
 const {slug} = Astro.params;
-const {pdf, image} = Astro.props;
+
+const product_images = await Astro.glob('../../content/products/**/*.png');
+const product_pdfs = await Astro.glob('../../content/products/**/*.pdf');
+
+const image = product_images.find(image => {
+    return image.default.src.includes(slug.split('/').at(-1))
+})
+
+const pdf = product_pdfs.find(pdf => {
+    return pdf?.default?.includes(slug.split('/').at(-1))
+})
 
 const categoryCollection = await getCollection('categories')
 const category = categoryCollection.find((category) => category.slug === slug.split('/').slice(0, 1).join('/'));
-
 
 if (slug === undefined) {
     throw new Error("Slug is required");
@@ -48,8 +49,6 @@ if (entry === undefined) {
 }
 
 const { Content } = await entry.render();
-
-console.log(pdf)
 ---
 <ProductsLayout>
     <div class="bg-white">
@@ -64,7 +63,7 @@ console.log(pdf)
                 <ol role="list" class="flex items-center space-x-4">
                     <li>
                         <div>
-                            <a href={new URL('https://itsect.github.io/specvagonmash/')} class="text-blue-500 hover:text-blue-700">
+                            <a href={new URL('http://itsect.github.io/specvagonmash/')} class="text-blue-500 hover:text-blue-700">
                                 <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 20 20"
                                      fill="currentColor" aria-hidden="true">
@@ -85,7 +84,7 @@ console.log(pdf)
                                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <a href={new URL('https://itsect.github.io/specvagonmash/products')}
+                            <a href={new URL('http://itsect.github.io/specvagonmash/products')}
                                class="ml-4 text-sm font-medium text-blue-500 hover:text-blue-700">Продукция</a>
                         </div>
                     </li>
@@ -98,7 +97,7 @@ console.log(pdf)
                                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <a href={new URL(category.slug, 'https://itsect.github.io/specvagonmash/products/')}
+                            <a href={new URL(category.slug, 'http://itsect.github.io/specvagonmash/products/')}
                                class="ml-4 text-sm font-medium text-blue-500 hover:text-blue-700 truncate"
                                aria-current="page" title={category.data.title}>{category.data.title}</a>
                         </div>
@@ -127,15 +126,13 @@ console.log(pdf)
             </div>
 
             <!-- Product image -->
-            {image &&
-                <div class="mt-4 lg:row-span-3 lg:mt-0">
-                    <div class="aspect-w-1 aspect-h-1 rounded-lg">
-                        {image && entry.data?.has_featured_image && (
-                                <Image aspectRatio={'16:9'} position={'top'} src={image.default} alt={entry.data.title} />
-                        )}
-                    </div>
+            <div class="mt-4 lg:row-span-3 lg:mt-0">
+                <div class="aspect-w-1 aspect-h-1 rounded-lg">
+                    {(image && entry.data?.has_featured_image) && (
+                            <img aspectRatio={'16:9'} position={'top'} src={image?.default} alt={entry.data.title} />
+                    )}
                 </div>
-            }
+            </div>
 
             <!-- Product details -->
             <div class="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8">
@@ -145,7 +142,7 @@ console.log(pdf)
                     <div class="prose g:prose-xl">
                         <Content/>
 
-                        {entry.data?.has_pdf && (
+                        {(pdf && entry.data?.has_pdf) && (
                                 <a href={pdf?.default}
                                    class="mt-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-700"
                                    type="button">Скачать PDF документацию</a>

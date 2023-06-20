@@ -16,6 +16,7 @@ export default defineConfig({
     base: '/specvagonmash',
     integrations: [react(), mdx(), sitemap(), tailwind()],
     output: 'static',
+    compressHTML: true,
     experimental: {
         assets: true
     },
