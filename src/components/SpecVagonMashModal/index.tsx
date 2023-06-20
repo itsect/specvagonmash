@@ -29,7 +29,7 @@ export default function SpecVagonMashModal() {
                     </Transition.Child>
 
                     {/* This element is to trick the browser into centering the modal contents. */}
-                    <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+                    <span className="sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
                     &#8203;
                   </span>
                     <Transition.Child
@@ -70,7 +70,7 @@ export default function SpecVagonMashModal() {
 	c2,0.9,4.2,1.4,6.3,1.4l0,0c2.5,0,5-0.6,7.2-1.8l0,0c4.1,2.1,8.9,2.3,13.1,0.4C56,54.8,53.5,58.6,49.8,60.6L49.8,60.6z M63.2,40.9
 	c-0.8,3-2.8,5.7-5.4,7.4c-0.2-2.1-0.8-4.2-1.9-6c-1.2-2.1-2.9-3.8-5-5l0,0c-0.1-2.4-0.8-4.7-2-6.7c-1.1-1.9-2.6-3.4-4.4-4.6
 	c6.3-3,13.8-0.8,17.4,5.2C63.7,34,64.2,37.6,63.2,40.9z"/>
-                                            <text transform="matrix(1 0 0 1 111.3305 54.7549)" className="fill-gray-900" style={{fontFamily: 'Arial-Black'}}>СПЕЦВАНГОСНАБ</text>
+                                            <text transform="matrix(1 0 0 1 111.3305 54.7549)" className="fill-gray-900" fontFamily={'Arial Black'}>СПЕЦВАНГОСНАБ</text>
                                         </svg>
                                         <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Получите <span className={'text-blue-500'}>индивидуальное коммерческое предложение</span> для вашего проекта</h2>
                                     </div>
