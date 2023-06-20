@@ -1,20 +1,29 @@
 ---
+const currentPath = Astro.url.pathname;
 const year = new Date().getFullYear()
+
+import SpecVagonMashModal from "./SpecVagonMashModal";
+import SpecVagonMashButton from "./SpecVagonMashButton";
 ---
 
-<div class="bg-white relative overflow-hidden">
+<div class="bg-white relative overflow-hidden ">
     <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 md:py-16 lg:px-8 lg:py-12">
         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             <span class="block">Нужна консультация ?</span>
         </h2>
         <p class="text-xl text-gray-500">Наши специалисты подскажут и помогут</p>
         <div class="mt-8 flex">
+
             <div class="inline-flex rounded-md shadow">
-                <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700">Заказать звонок</a>
+                <SpecVagonMashButton client:only="react" />
             </div>
-            <div class="ml-3 inline-flex">
-                <a href={new URL('http://itsect.github.io/specvagonmash/contacts')} class="inline-flex items-center justify-center px-5 py-3 border text-base font-medium rounded-md text-gray-400 text-gray-500 hover:bg-gray-100 border-gray-300 border shadow-sm">Контакты</a>
-            </div>
+
+            {!currentPath.includes('contacts') && (
+                    <div class="ml-3 inline-flex">
+                        <a href={new URL('http://itsect.github.io/specvagonmash/products/contacts')}
+                           class="inline-flex items-center justify-center px-5 py-3 border text-base font-medium rounded-md text-gray-400 text-gray-500 hover:bg-gray-100 border-gray-300 border shadow-sm">Контакты</a>
+                    </div>
+            )}
         </div>
     </div>
 </div>
@@ -26,7 +35,7 @@ const year = new Date().getFullYear()
 
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="">
-                <a href={new URL('http://itsect.github.io/specvagonmash/')}>
+                <a href={new URL('http://itsect.github.io/specvagonmash/products/')}>
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                          viewBox="0 0 476.4 89.2" className={'w-auto h-12 text-3xl fill-gray-500'}>
                         <path fillRule={'evenodd'} clipRule={'evenodd'} d="M75.2,53l1.9-6.8l4.2-0.3l4.5-1.4v-3l0,0C85.8,18.6,66.5,0,42.9,0S0,18.5,0,41.4l0,0v0.1l0,0v3.1l4.5,1.4
@@ -43,10 +52,13 @@ const year = new Date().getFullYear()
 	c2,0.9,4.2,1.4,6.3,1.4l0,0c2.5,0,5-0.6,7.2-1.8l0,0c4.1,2.1,8.9,2.3,13.1,0.4C56,54.8,53.5,58.6,49.8,60.6L49.8,60.6z M63.2,40.9
 	c-0.8,3-2.8,5.7-5.4,7.4c-0.2-2.1-0.8-4.2-1.9-6c-1.2-2.1-2.9-3.8-5-5l0,0c-0.1-2.4-0.8-4.7-2-6.7c-1.1-1.9-2.6-3.4-4.4-4.6
 	c6.3-3,13.8-0.8,17.4,5.2C63.7,34,64.2,37.6,63.2,40.9z"/>
-                        <text transform="matrix(1 0 0 1 111.3305 54.7549)" style={{fontFamily: 'Arial-Black'}}>СПЕЦВАНГОСНАБ</text>
+                        <text transform="matrix(1 0 0 1 111.3305 54.7549)" style={{fontFamily: 'Arial-Black'}}>
+                            СПЕЦВАНГОСНАБ
+                        </text>
                     </svg>
                 </a>
-                <p class="text-base text-gray-500 mt-6">СПЕЦВАГОНСНАБ – российская компания, являющаяся официальным дилером
+                <p class="text-base text-gray-500 mt-6">СПЕЦВАГОНСНАБ – российская компания, являющаяся официальным
+                    дилером
                     Parveen, ведущего производителя нефтегазового оборудования</p>
 
             </div>
@@ -56,10 +68,12 @@ const year = new Date().getFullYear()
                         <h3 class="text-base font-medium text-gray-900">Решения</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href={new URL('http://itsect.github.io/specvagonmash/products')} class="text-base text-blue-500 hover:text-blue-700">Продукция</a>
+                                <a href={new URL('http://itsect.github.io/specvagonmash/products/products')}
+                                   class="text-base text-blue-500 hover:text-blue-700">Продукция</a>
                             </li>
                             <li>
-                                <a href={new URL('http://itsect.github.io/specvagonmash/certificates')} class="text-base text-blue-500 hover:text-blue-700">Сертификаты</a>
+                                <a href={new URL('http://itsect.github.io/specvagonmash/products/certificates')}
+                                   class="text-base text-blue-500 hover:text-blue-700">Сертификаты</a>
                             </li>
                         </ul>
                     </div>
@@ -69,10 +83,12 @@ const year = new Date().getFullYear()
                         <h3 class="text-base font-medium text-gray-900">Компания</h3>
                         <ul role="list" class="mt-4 space-y-4">
                             <li>
-                                <a href={new URL('http://itsect.github.io/specvagonmash/about')} class="text-base text-blue-500 hover:text-blue-700">О компании</a>
+                                <a href={new URL('http://itsect.github.io/specvagonmash/products/about')}
+                                   class="text-base text-blue-500 hover:text-blue-700">О компании</a>
                             </li>
                             <li>
-                                <a href={new URL('http://itsect.github.io/specvagonmash/contacts')} class="text-base text-blue-500 hover:text-blue-700">Контакты</a>
+                                <a href={new URL('http://itsect.github.io/specvagonmash/products/contacts')}
+                                   class="text-base text-blue-500 hover:text-blue-700">Контакты</a>
                             </li>
                         </ul>
                     </div>
@@ -84,3 +100,5 @@ const year = new Date().getFullYear()
         </div>
     </div>
 </footer>
+
+<SpecVagonMashModal client:only="react" />

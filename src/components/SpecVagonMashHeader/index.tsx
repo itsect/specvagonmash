@@ -2,7 +2,9 @@ import {Fragment, useRef} from 'react'
 import {Popover, Menu, Transition} from '@headlessui/react'
 
 import {useStore} from '@nanostores/react';
-import {isProductsMenuOpened} from '../../store';
+import {isModalOpened} from '../../store';
+
+import SpecVagonMashButton from "../SpecVagonMashButton";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -33,15 +35,15 @@ export default function SpecVagonMashHeader({categories, logo}) {
         open && (timeout = setTimeout(() => closeMenu(), timeoutDuration))
     }
 
-    const $isProductMenuOpened = useStore(isProductsMenuOpened);
+    const $isModalOpened = useStore(isModalOpened);
 
     return (
-        <Popover className="relative bg-white border-b-2 border-gray-100">
+        <Popover className="relative bg-white border-b-2 border-gray-100 z-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div
                     className="flex justify-between items-center py-4 lg:justify-start md:space-x-10">
                     <div className="flex justify-start lg:w-0 lg:flex-1">
-                        <a href={new URL('http://itsect.github.io/specvagonmash/')}>
+                        <a href={new URL('http://itsect.github.io/specvagonmash/products/')}>
                             <span className="sr-only">Workflow</span>
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 476.4 89.2" className={'w-auto h-12 lg:h-16 text-3xl'}>
                                 <path fill={'#A5282D'} fillRule={'evenodd'} clipRule={'evenodd'} d="M75.2,53l1.9-6.8l4.2-0.3l4.5-1.4v-3l0,0C85.8,18.6,66.5,0,42.9,0S0,18.5,0,41.4l0,0v0.1l0,0v3.1l4.5,1.4
@@ -58,15 +60,15 @@ export default function SpecVagonMashHeader({categories, logo}) {
 	c2,0.9,4.2,1.4,6.3,1.4l0,0c2.5,0,5-0.6,7.2-1.8l0,0c4.1,2.1,8.9,2.3,13.1,0.4C56,54.8,53.5,58.6,49.8,60.6L49.8,60.6z M63.2,40.9
 	c-0.8,3-2.8,5.7-5.4,7.4c-0.2-2.1-0.8-4.2-1.9-6c-1.2-2.1-2.9-3.8-5-5l0,0c-0.1-2.4-0.8-4.7-2-6.7c-1.1-1.9-2.6-3.4-4.4-4.6
 	c6.3-3,13.8-0.8,17.4,5.2C63.7,34,64.2,37.6,63.2,40.9z"/>
-                                <text transform="matrix(1 0 0 1 111.3305 54.7549)" class="fill-gray-900" style={{fontFamily: 'Arial-Black'}}>СПЕЦВАНГОСНАБ</text>
-</svg>
+                                <text transform="matrix(1 0 0 1 111.3305 54.7549)" className="fill-gray-900" style={{fontFamily: 'Arial-Black'}}>СПЕЦВАНГОСНАБ</text>
+                            </svg>
                         </a>
                     </div>
                     <div className="-mr-2 -my-2 lg:hidden">
                         <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                             <span className="sr-only">Open menu</span>
                             <svg className="h-6 w-6" x-description="Heroicon name: outline/menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
                             </svg>
                         </Popover.Button>
                     </div>
@@ -118,7 +120,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                                             <Menu.Item key={category.id}>
                                                                 {({active}) => (
                                                                     <a
-                                                                        href={new URL('http://itsect.github.io/specvagonmash/products/' + category.slug)}
+                                                                        href={new URL('http://itsect.github.io/specvagonmash/products/products/' + category.slug)}
                                                                         className={'-m-3 p-3 flex items-start rounded-lg hover:bg-gray-100'}
                                                                     >
                                                                         <p className="mt-1 text-sm text-gray-500">{category.data.title}</p>
@@ -130,7 +132,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                                     <div
                                                         className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                                                         <div className="flow-root">
-                                                            <a href={new URL('http://itsect.github.io/specvagonmash/products')}
+                                                            <a href={new URL('http://itsect.github.io/specvagonmash/products/products')}
                                                                className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
                                                                 <svg className="flex-shrink-0 h-6 w-6 text-blue-500"
                                                                      viewBox="0 0 1024 1024"
@@ -166,19 +168,16 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                 </>
                             )}
                         </Menu>
-                        <a href={new URL('http://itsect.github.io/specvagonmash/about')}
-                           className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
+                        <a href={new URL('http://itsect.github.io/specvagonmash/products/about')}
+                           className="whitespace-nowrap inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                             О компании
                         </a>
 
-                        <a href={new URL('http://itsect.github.io/specvagonmash/contacts')}
+                        <a href={new URL('http://itsect.github.io/specvagonmash/products/contacts')}
                            className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                             Контакты
                         </a>
-                        <a href="#"
-                           className="ml-8 whitespace-nowrap inline-block text-center bg-blue-500 border border-transparent rounded-md py-3 px-4 font-medium text-white hover:bg-blue-700">
-                            Заказать звонок
-                        </a>
+                        <SpecVagonMashButton />
                     </div>
 
                 </div>
@@ -198,7 +197,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                         <div className="pt-5 pb-6 px-5 border-b-2 border-gray-100">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <a href={new URL('http://itsect.github.io/specvagonmash/')} className={'focus:outline-none'}>
+                                    <a href={new URL('http://itsect.github.io/specvagonmash/products/')} className={'focus:outline-none'}>
                                         <span className="sr-only">Workflow</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 476.4 89.2" className={'w-auto h-12 lg:h-16 text-3xl'}>
                                             <path fill={'#A5282D'} fillRule={'evenodd'} clipRule={'evenodd'} d="M75.2,53l1.9-6.8l4.2-0.3l4.5-1.4v-3l0,0C85.8,18.6,66.5,0,42.9,0S0,18.5,0,41.4l0,0v0.1l0,0v3.1l4.5,1.4
@@ -223,7 +222,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                     <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                         <span className="sr-only">Close menu</span>
                                         <svg className="h-6 w-6" x-description="Heroicon name: outline/x" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                                         </svg>
                                     </Popover.Button>
                                 </div>
@@ -241,7 +240,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                 {categories.map((category) => (
                                     <a
                                         key={'popover' + category.id}
-                                        href={new URL('http://itsect.github.io/specvagonmash/products/' + category.slug)}
+                                        href={new URL('http://itsect.github.io/specvagonmash/products/products/' + category.slug)}
                                         className="flex items-center rounded-md hover:bg-gray-50"
                                     >
                                         <span className="ml-3 text-base font-medium text-gray-900">{category.data.title}</span>
@@ -254,20 +253,20 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                 <div
                                     className="py-1">
                                     <div className="flow-root">
-                                        <a href={new URL('http://itsect.github.io/specvagonmash/products')}
+                                        <a href={new URL('http://itsect.github.io/specvagonmash/products/products')}
                                            className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                                             Вся продукция
                                         </a>
                                     </div>
                                 </div>
                                 <div className={'py-1'}>
-                                    <a href={new URL('http://itsect.github.io/specvagonmash/about')}
+                                    <a href={new URL('http://itsect.github.io/specvagonmash/products/about')}
                                        className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                                         О компании
                                     </a>
                                 </div>
                                 <div className={'py-1'}>
-                                    <a href={new URL('http://itsect.github.io/specvagonmash/contacts')}
+                                    <a href={new URL('http://itsect.github.io/specvagonmash/products/contacts')}
                                        className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
                                         Контакты
                                     </a>
@@ -276,10 +275,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
 
                             <div>
                                 <p className="mt-6 text-center text-base font-medium text-gray-500">
-                                    <a href="#"
-                                       className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-700">
-                                        Заказать звонок
-                                    </a>
+                                    <SpecVagonMashButton />
                                 </p>
                             </div>
                         </div>

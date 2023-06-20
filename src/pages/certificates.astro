@@ -2,37 +2,135 @@
 import Index from '../layouts/index.astro';
 ---
 <Index>
-    <div class="relative bg-white">
-        <div class="lg:absolute lg:inset-0">
-            <div class="lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2">
-                <!--<img class="h-56 w-full object-cover lg:absolute lg:h-full" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80" alt="">-->
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div class="py-16 bg-gray-50 overflow-hidden lg:py-24">
+        <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
+
+            <svg class="hidden lg:block absolute left-full transform -translate-x-1 -translate-y-3/4" width="404" height="784" fill="none" viewBox="0 0 404 784" aria-hidden="true">
+                <defs>
+                    <pattern id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                    </pattern>
+                </defs>
+                <rect width="404" height="784" fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)" />
+            </svg>
+
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900">Cертификаты</h2>
+                <p class="mt-4 text-lg text-gray-500">Оборудование производится в соответствии со стандартами Американского института нефти – API и подтверждено сертификатами:</p>
             </div>
-        </div>
-        <div class="relative px-4 pt-12 pb-16 sm:px-6 sm:pt-16 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-            <div class="lg:col-start-2 lg:pl-8">
-                <div class="mx-auto max-w-prose text-base lg:ml-auto lg:mr-0 lg:max-w-lg">
-                    <h2 class="font-semibold leading-6 text-indigo-600">О компании</h2>
-                    <h3 class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">Спецвагонснаб</h3>
-                    <!--<p class="mt-8 text-lg text-gray-500">Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed consectetur neque tristique pellentesque. Blandit amet, sed aenean erat arcu morbi.</p>-->
 
-                    <!--<div class="prose prose-indigo mt-5 text-gray-500">-->
-                    <!--    <p>Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet quam urna.</p>-->
-                    <!--    <p>Bibendum eu nulla feugiat justo, elit adipiscing. Ut tristique sit nisi lorem pulvinar. Urna, laoreet fusce nibh leo. Dictum et et et sit. Faucibus sed non gravida lectus dignissim imperdiet a.</p>-->
-                    <!--    <p>Dictum magnis risus phasellus vitae quam morbi. Quis lorem lorem arcu, metus, egestas netus cursus. In.</p>-->
-                    <!--    <ul role="list">-->
-                    <!--        <li>Quis elit egestas venenatis mattis dignissim.</li>-->
-                    <!--        <li>Cras cras lobortis vitae vivamus ultricies facilisis tempus.</li>-->
-                    <!--        <li>Orci in sit morbi dignissim metus diam arcu pretium.</li>-->
-                    <!--    </ul>-->
-
-                    <!--    <p>Rhoncus nisl, libero egestas diam fermentum dui. At quis tincidunt vel ultricies. Vulputate aliquet velit faucibus semper. Pellentesque in venenatis vestibulum consectetur nibh id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim fermentum lacus in. Viverra.</p>-->
-
-                    <!--    <h3>How we’re different</h3>-->
-                    <!--    <p>Tincidunt integer commodo, cursus etiam aliquam neque, et. Consectetur pretium in volutpat, diam. Montes, magna cursus nulla feugiat dignissim id lobortis amet. Laoreet sem est phasellus eu proin massa, lectus. Diam rutrum posuere donec ultricies non morbi. Mi a platea auctor mi.</p>-->
-                    <!--    <p>Mauris ullamcorper imperdiet nec egestas mi quis quam ante vulputate. Vel faucibus adipiscing lacus, eget. Nunc fermentum id tellus donec. Ut metus odio sit sit varius non nunc orci. Eu, mi neque, ornare suspendisse amet, nibh. Facilisi volutpat lectus id sapien dis mauris rhoncus. Est rhoncus, interdum imperdiet ac eros, diam mauris, tortor. Risus id sit molestie magna.</p>-->
-                    <!--</div>-->
+            <dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">API 5CT</p>
+                    </dt>
                 </div>
-            </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">API 6A</p>
+                    </dt>
+                </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900"> API 11D1</p>
+                    </dt>
+                </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">PI 14A</p>
+                    </dt>
+                </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">API 14L</p>
+                    </dt>
+                </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">API 16C</p>
+                    </dt>
+                </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">API Q1</p>
+                    </dt>
+                </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">API 19G1</p>
+                    </dt>
+                </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">API 19G2</p>
+                    </dt>
+                </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">API 19G3</p>
+                    </dt>
+                </div>
+
+                <div class="relative">
+                    <dt>
+                        <!-- Heroicon name: outline/check -->
+                        <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">API 7</p>
+                    </dt>
+                </div>
+            </dl>
         </div>
     </div>
 </Index>

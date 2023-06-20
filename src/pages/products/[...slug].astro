@@ -63,7 +63,7 @@ const { Content } = await entry.render();
                 <ol role="list" class="flex items-center space-x-4">
                     <li>
                         <div>
-                            <a href={new URL('http://itsect.github.io/specvagonmash/')} class="text-blue-500 hover:text-blue-700">
+                            <a href={new URL('http://itsect.github.io/specvagonmash/products/')} class="text-blue-500 hover:text-blue-700">
                                 <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 20 20"
                                      fill="currentColor" aria-hidden="true">
@@ -84,7 +84,7 @@ const { Content } = await entry.render();
                                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <a href={new URL('http://itsect.github.io/specvagonmash/products')}
+                            <a href={new URL('http://itsect.github.io/specvagonmash/products/products')}
                                class="ml-4 text-sm font-medium text-blue-500 hover:text-blue-700">Продукция</a>
                         </div>
                     </li>
@@ -97,7 +97,7 @@ const { Content } = await entry.render();
                                       d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                                       clip-rule="evenodd"/>
                             </svg>
-                            <a href={new URL(category.slug, 'http://itsect.github.io/specvagonmash/products/')}
+                            <a href={new URL(category.slug, 'http://itsect.github.io/specvagonmash/products/products/')}
                                class="ml-4 text-sm font-medium text-blue-500 hover:text-blue-700 truncate"
                                aria-current="page" title={category.data.title}>{category.data.title}</a>
                         </div>
@@ -119,20 +119,20 @@ const { Content } = await entry.render();
             </nav>
         </div>
 
-        <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16 border-t border-gray-200 ">
+        <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16 border-t border-gray-200 border-b-2 border-gray-200">
 
             <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                 
             </div>
 
             <!-- Product image -->
-            <div class="mt-4 lg:row-span-3 lg:mt-0">
-                <div class="aspect-w-1 aspect-h-1 rounded-lg">
-                    {(image && entry.data?.has_featured_image) && (
-                            <img aspectRatio={'16:9'} position={'top'} src={image?.default} alt={entry.data.title} />
-                    )}
+            {(image && entry.data?.has_featured_image) && (
+                <div class="mt-4 lg:row-span-3 lg:mt-0">
+                    <div class="aspect-w-1 aspect-h-1 rounded-lg">
+                        <Image aspectRatio={'16:9'} position={'top'} src={image?.default} alt={entry.data.title} />
+                    </div>
                 </div>
-            </div>
+            )}
 
             <!-- Product details -->
             <div class="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8">
