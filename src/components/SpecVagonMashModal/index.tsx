@@ -42,7 +42,7 @@ export default function SpecVagonMashModal() {
                         leaveTo="opacity-0 translate-y-0 sm:translate-y-0 sm:scale-95"
                     >
                         <div className="relative inline-block align-center bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:w-100 sm:p-6 opacity-100 translate-y-0 sm:scale-100">
-                            <div className="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
+                            <div className="absolute top-0 right-0 pt-4 pr-4">
                                 <button type="button" className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => {
                                     isModalOpened.set(!$isModalOpened)
                                 }}>
