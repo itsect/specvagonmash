@@ -15,7 +15,7 @@ export default defineConfig({
     site: 'https://itsect.github.io',
     base: '/specvagonmash',
     integrations: [react(), mdx(), sitemap(), tailwind({
-        config: { path: './tailwind.config.js' },
+        applyBaseStyles: true
     })],
     output: 'static',
     compressHTML: true,
