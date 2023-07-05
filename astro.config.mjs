@@ -12,10 +12,12 @@ import sitemap from '@astrojs/sitemap';
 
 
 export default defineConfig({
-    site: 'https://itsect.github.io',
-    base: '/specvagonmash',
+    // site: 'http://localhost:3000',
+    // base: '/specvagonmash',
     integrations: [react(), mdx(), sitemap(), tailwind({
-        applyBaseStyles: true
+        // configFile: fileURLToPath(new URL('./tailwind.config.cjs', import.meta.url)),
+        // applyBaseStyles: true,
+        // blocklist: []
     })],
     output: 'static',
     compressHTML: true,

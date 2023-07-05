@@ -6,7 +6,9 @@ import { useStore } from '@nanostores/react';
 import {isModalOpened} from '../../store';
 
 
-export default function SpecVagonMashModal() {
+export default function SpecVagonMashModal({
+    categories
+                                           }) {
 
     const $isModalOpened = useStore(isModalOpened);
 
@@ -41,14 +43,14 @@ export default function SpecVagonMashModal() {
                         leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                         leaveTo="opacity-0 translate-y-0 sm:translate-y-0 sm:scale-95"
                     >
-                        <div className="relative inline-block align-center bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:w-100 sm:p-6 opacity-100 translate-y-0 sm:scale-100">
+                        <div className="relative inline-block align-center bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-80 sm:w-full sm:p-6 opacity-100 translate-y-0 sm:scale-100">
                             <div className="absolute top-0 right-0 pt-4 pr-4">
-                                <button type="button" className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onClick={() => {
+                                <button type="button" className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" onClick={() => {
                                     isModalOpened.set(!$isModalOpened)
                                 }}>
                                     <span className="sr-only">Close</span>
                                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </button>
                             </div>
@@ -113,7 +115,7 @@ export default function SpecVagonMashModal() {
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                         </svg>
                                                         <p className="ml-3 font-medium text-gray-900">Нефтегазовое оборудования
-                                                            ведущего <br /> производителя оборудования</p>
+                                                            ведущего производителя оборудования</p>
                                                     </dt>
                                                 </div>
                                                 <div>
@@ -121,7 +123,7 @@ export default function SpecVagonMashModal() {
                                                         <svg className="h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                         </svg>
-                                                        <p className="ml-3 font-medium text-gray-900">На 30% дешевле, чем зарубежные <br /> аналоги без потери качества</p>
+                                                        <p className="ml-3 font-medium text-gray-900">На 30% дешевле, чем зарубежные аналоги без потери качества</p>
                                                     </dt>
                                                 </div>
                                                 <div>
@@ -129,7 +131,7 @@ export default function SpecVagonMashModal() {
                                                         <svg className="h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                         </svg>
-                                                        <p className="ml-3 font-medium text-gray-900">Срок поставки от 30 дней, <br />в зависимости от сложности изделия
+                                                        <p className="ml-3 font-medium text-gray-900">Срок поставки от 30 дней, в зависимости от сложности изделия
                                                         </p>
                                                     </dt>
                                                 </div>
@@ -138,7 +140,7 @@ export default function SpecVagonMashModal() {
                                                         <svg className="h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                         </svg>
-                                                        <p className="ml-3 font-medium text-gray-900">Соблюдение гарантийных <br />обязательств производителя</p>
+                                                        <p className="ml-3 font-medium text-gray-900">Соблюдение гарантийных обязательств производителя</p>
                                                     </dt>
                                                 </div>
                                             </dl>
@@ -146,10 +148,71 @@ export default function SpecVagonMashModal() {
 
                                         <div className="mt-6">
                                             <form action="#" method="POST" className="space-y-6" name="modal">
-                                                <div className="flex items-center justify-between">
+                                                <div className={'grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3'}>
                                                     <div>
-                                                        <label className="text-base font-medium text-gray-900">Способ оповещения</label>
-                                                        <p className="text-sm leading-5 text-gray-500">Куда отправить коммерческое предложение</p>
+                                                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                                                            Ваше имя:
+                                                        </label>
+                                                        <div className="mt-1">
+                                                            <input
+                                                                type="text"
+                                                                name="name"
+                                                                id="name"
+                                                                className="shadow-sm focus:ring-blue-500 focus:border-blue-700 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                                placeholder="Иван Иванов"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <label htmlFor="equipment" className="block text-sm font-medium text-gray-700">
+                                                            Тип оборудования
+                                                        </label>
+                                                        <select
+                                                            id="equipment"
+                                                            name="equipment"
+                                                            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                                                            defaultValue="Canada"
+                                                        >
+                                                            {categories.map((category) => {
+                                                                return (
+                                                                    <option value={category.title}>{category.title}</option>
+                                                                )
+                                                            })}
+
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                                                            Ваш email:
+                                                        </label>
+                                                        <div className="mt-1">
+                                                            <input
+                                                                type="email"
+                                                                name="email"
+                                                                id="email"
+                                                                className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                                placeholder="you@example.com"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
+                                                    <div className={'md:col-span-1'}>
+                                                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                                                            Ваш телефон:
+                                                        </label>
+                                                        <div className="mt-1">
+                                                            <input
+                                                                type="tel"
+                                                                name="phone"
+                                                                id="phone"
+                                                                className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                                placeholder="+7-000-000-00-00"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-gray-700">Способ оповещения</label>
                                                         <fieldset className="mt-4">
                                                             <legend className="sr-only">Метод оповещения</legend>
                                                             <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
@@ -157,30 +220,34 @@ export default function SpecVagonMashModal() {
                                                                     <input
                                                                         name="notification-method"
                                                                         type="radio"
-                                                                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                                                                        id="send_by_email"
+                                                                        defaultChecked={true}
+                                                                        className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                                                                     />
-                                                                    <label className="ml-3 block text-sm font-medium text-gray-700">
-                                                                        E-mail
+                                                                    <label htmlFor={'send_by_email'} className="ml-3 block text-sm font-medium text-gray-700">
+                                                                        Email
                                                                     </label>
                                                                 </div>
                                                                 <div className="flex items-center">
                                                                     <input
+                                                                        id={'send_by_whatsapp'}
                                                                         name="notification-method"
                                                                         type="radio"
-                                                                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                                                                        className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                                                                     />
-                                                                    <label className="ml-3 block text-sm font-medium text-gray-700">
-                                                                        E-mail
+                                                                    <label htmlFor={'send_by_whatsapp'} className="ml-3 block text-sm font-medium text-gray-700">
+                                                                        WhatsApp
                                                                     </label>
                                                                 </div>
                                                                 <div className="flex items-center">
                                                                     <input
+                                                                        id={'send_by_telegram'}
                                                                         name="notification-method"
                                                                         type="radio"
-                                                                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                                                                        className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                                                                     />
-                                                                    <label className="ml-3 block text-sm font-medium text-gray-700">
-                                                                        E-mail
+                                                                    <label htmlFor={'send_by_telegram'} className="ml-3 block text-sm font-medium text-gray-700">
+                                                                        Telegram
                                                                     </label>
                                                                 </div>
                                                             </div>
