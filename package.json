@@ -11,24 +11,24 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.7.3",
+    "astro": "^2.9.4",
     "nanostores": "^0.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@astrojs/react": "^2.2.1",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/rss": "^2.4.3",
-    "@astrojs/sitemap": "^1.3.3",
+    "@astrojs/sitemap": "^2.0.1",
     "@astrojs/tailwind": "^4.0.0",
-    "tailwindcss": "^3.3.2",
+    "tailwindcss": "^3.3.3",
     "@tailwindcss/typography": "^0.5.9",
-    "@tailwindcss/forms" : "^0.5.3"
+    "@tailwindcss/forms" : "^0.5.4"
   },
   "devDependencies": {
-    "sharp": "^0.32.1",
-    "sass": "^1.63.6",
-    "@headlessui/react" : "^1.7.15",
+    "sharp": "^0.32.4",
+    "sass": "^1.64.1",
+    "@headlessui/react" : "^1.7.16",
     "@nanostores/react": "^0.7.1",
-    "postcss" : "^8.4.24"
+    "postcss" : "^8.4.27"
   }
 }

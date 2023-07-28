@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import {Image} from 'astro:assets'
 
 import Index from '../layouts/index.astro';
 import oil_equipment_photo from '../assets/about-oil-equipment.png'
@@ -7,82 +7,77 @@ import oil_equipment_photo from '../assets/about-oil-equipment.png'
 <Index>
     <div class="py-16 bg-gray-50 overflow-hidden lg:py-24">
         <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
-            <svg class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4" width="404" height="784" fill="none" viewBox="0 0 404 784" aria-hidden="true">
+            <svg class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4" width="404"
+                 height="784" fill="none" viewBox="0 0 404 784" aria-hidden="true">
                 <defs>
-                    <pattern id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                    <pattern id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7" x="0" y="0" width="20" height="20"
+                             patternUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"/>
                     </pattern>
                 </defs>
-                <rect width="404" height="784" fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)" />
+                <rect width="404" height="784" fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)"/>
             </svg>
 
-            <div class="relative lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+            <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">О компании</h3>
+
+            <div class="relative lg:grid lg:grid-cols-2 lg:gap-8 lg:items-top">
                 <div class="relative">
-                    <h3 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">О компании</h3>
-                    <p class="mt-3 text-lg text-gray-500">СПЕЦВАГОНСНАБ – 🇷🇺 российская компания, являющаяся официальным дилером Parveen, ведущего производителя нефтегазового оборудования.</p>
-
-                    <dl class="mt-10 space-y-10">
-                        <div class="relative">
-                            <dt>
-                                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                                    <!-- Heroicon name: outline/globe-alt -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                    </svg>
-                                </div>
-                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Бесперебойные поставки</p>
-                            </dt>
-                            <dd class="mt-2 ml-16 text-base text-gray-500">Обеспечение бесперебойных поставок широкого ассортимента оборудования, отвечающего мировым стандартам отрасли;</dd>
-                        </div>
-
-                        <div class="relative">
-                            <dt>
-                                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                                    <!-- Heroicon name: outline/scale -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                                    </svg>
-                                </div>
-                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Контроль качества</p>
-                            </dt>
-                            <dd class="mt-2 ml-16 text-base text-gray-500">Проведение многофакторного контроля качества, включающего тестирование оборудования на соответствие требуемым параметрам</dd>
-                        </div>
-
-                        <div class="relative">
-                            <dt>
-                                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                                    <!-- Heroicon name: outline/lightning-bolt -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                </div>
-                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Гарантия</p>
-                            </dt>
-                            <dd class="mt-2 ml-16 text-base text-gray-500">Соблюдение гарантийных обязательств производителя</dd>
-                        </div>
-                    </dl>
+                    <p class="mt-3 text-lg text-gray-700">Компания «Спецвагонснаб» - это официальный эксклюзивный
+                        дистрибьютор нефтесервисного оборудования от международного лидера Parveen Industries PVT
+                        LTD.</p>
+                    <p class="mt-3 text-lg text-gray-700">Индийская компания Parveen Industries PVT LTD была основана
+                        1960 году и за свою полувековую историю получила статус одного из ведущих игроков на мировом
+                        рынке нефтегазового оборудования.</p>
+                    <p class="mt-3 text-lg text-gray-700">Сегодня «Спецвагонснаб» представляет максимально широкий
+                        ассортимент оборудования, отвечающий всем современным стандартам нефтяной отрасли. Восемь
+                        крупных производственных предприятий на территории Индии позволяют создавать инновационную
+                        высококачественную продукцию. Всё оборудование предназначено для работ, связанных со
+                        строительством скважин и их подготовкой к эксплуатации, включая гидроразрыв пласта.</p>
+                    <p class="mt-3 text-lg text-gray-700">Компания «Спецвагонснаб» предлагает продукцию, соответствующую
+                        всем международным требованиям, при этом сохраняя очень привлекательную стоимость. Неизменно
+                        высокое качество нефтесервисного оборудования компании Parveen Industries PVT LTD подтверждает
+                        их присутствие на североамериканском рынке под брендом «American Completion Tools».</p>
                 </div>
 
                 <div class="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">
-                    <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
+                    <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784"
+                         height="404" fill="none" viewBox="0 0 784 404">
                         <defs>
-                            <pattern id="ca9667ae-9f92-4be7-abcb-9e3d727f2941" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                            <pattern id="ca9667ae-9f92-4be7-abcb-9e3d727f2941" x="0" y="0" width="20" height="20"
+                                     patternUnits="userSpaceOnUse">
+                                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"/>
                             </pattern>
                         </defs>
-                        <rect width="784" height="404" fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)" />
+                        <rect width="784" height="404" fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"/>
                     </svg>
-                    <Image class="relative mx-auto" width="490" src={oil_equipment_photo} alt="СПЕЦВАГОНСНАБ Parveen" />
+                    <Image class="relative mx-auto" width="490" src={oil_equipment_photo} alt="СПЕЦВАГОНСНАБ Parveen"/>
                 </div>
             </div>
 
-            <svg class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12" width="404" height="784" fill="none" viewBox="0 0 404 784" aria-hidden="true">
+            <p class="mt-3 text-lg text-gray-700">Приоритетом «Спецвагонснаб» является долгосрочное
+                сотрудничество со своими партнерами в атмосфере открытости и доверия. Со своей стороны компания
+                гарантирует выполнение всех взятых на себя обязательств:</p>
+            <ul class="ml-6 mt-3 list-image-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNCAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjNGU4MGVlIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy42ODUuMTUzYS43NTIuNzUyIDAgMCAxIC4xNDMgMS4wNTJsLTggMTAuNWEuNzUuNzUgMCAwIDEtMS4xMjcuMDc1bC00LjUtNC41YS43NS43NSAwIDAgMSAxLjA2LTEuMDZsMy44OTQgMy44OTMgNy40OC05LjgxN2EuNzUuNzUgMCAwIDEgMS4wNS0uMTQzWiIgLz48L3N2Zz4=')] text-lg text-gray-700">
+                <li class="pl-1">поставку высококачественного оборудования</li>
+                <li class="pl-1">соблюдение всех сроков</li>
+                <li class="pl-1">гибкие условия оплаты</li>
+                <li class="pl-1">сервисную поддержку</li>
+                <li class="pl-1">клиентский сервис</li>
+            </ul>
+
+            <p class="mt-3 text-lg text-gray-700">Компания «Спецвагонснаб», предлагая инновационное оборудование
+                и высокий сервис от момента заключения контракта до ежедневного ведения, станет надежным
+                партнером вашего бизнеса.</p>
+
+            <svg class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12" width="404"
+                 height="784" fill="none" viewBox="0 0 404 784" aria-hidden="true">
                 <defs>
-                    <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                    <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20"
+                             patternUnits="userSpaceOnUse">
+                        <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"/>
                     </pattern>
                 </defs>
-                <rect width="404" height="784" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
+                <rect width="404" height="784" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"/>
             </svg>
 
 
