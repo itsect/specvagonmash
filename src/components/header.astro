@@ -2,11 +2,12 @@
 import {getCollection, getEntry} from 'astro:content';
 
 const allCategories = await getCollection('categories');
-allCategories.sort((a, b) => {
+
+const categories = allCategories.filter((category) => category.data.ready).sort((a, b) => {
     return a.data.id - b.data.id;
 })
 
 import logo from '../assets/logo.svg'
 import SpecVagonMashHeader from './SpecVagonMashHeader/index'
 ---
-<SpecVagonMashHeader client:only="react" logo={logo} categories={allCategories} />
+<SpecVagonMashHeader client:only="react" logo={logo} categories={categories} />

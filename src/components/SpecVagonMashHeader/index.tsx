@@ -359,7 +359,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                 </div>
                                 <div className="px-5 bg-gray-50 py-6">
                                     <nav className="grid gap-y-8">
-                                        {categories.map((category) => (
+                                        {categories.filter((category) => category.ready).map((category) => (
                                             <a
                                                 key={'popover' + category.id}
                                                 href={new URL('https://svs-msk.ru/products/' + category.slug)}

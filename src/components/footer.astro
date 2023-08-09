@@ -7,7 +7,7 @@ import SpecVagonMashButton from "./SpecVagonMashButton";
 
 import {getCollection, getEntry} from 'astro:content';
 const categoryCollection = await getCollection('categories')
-const categories = categoryCollection.map((category) => {
+const categories = categoryCollection.filter((category) => category.data.ready).map((category) => {
     return {
         title : category.data.title,
         slug: category.slug

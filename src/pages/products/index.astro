@@ -6,6 +6,7 @@ import {getCollection, getEntry} from 'astro:content';
 import ProductsLayout from '../../layouts/products.astro';
 
 const allCategories = await getCollection('categories');
+const categories = allCategories.filter((category) => category.data.ready)
 const categories_images = await Astro.glob('../../content/categories/**/*.png');
 
 ---
@@ -74,7 +75,7 @@ const categories_images = await Astro.glob('../../content/categories/**/*.png');
             <div class="mx-auto max-w-7xl sm:px-2 lg:px-4 border-t border-gray-200">
                 <div class="mx-auto max-w-2xl px-4 lg:max-w-none">
                     <div class="mt-10 space-y-6 pt-4 sm:mt-6 sm:pt-4 px-4">
-                        {allCategories.sort((a, b) => {
+                        {categories.sort((a, b) => {
                             return a.data.id - b.data.id;
                         }).map(category => {
 

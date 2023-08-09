@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 
     const allCategories = await getCollection('categories');
 
-    return allCategories.map((category) => {
+    return allCategories.filter((category) => category.data.ready).map((category) => {
         return {
             params: {
                 pid: category.slug
