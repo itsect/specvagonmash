@@ -12,8 +12,8 @@ import sitemap from '@astrojs/sitemap';
 
 
 export default defineConfig({
-    site: 'https://itsect.github.io/specvagonmash',
-    base: '/specvagonmash',
+    site: 'https://svs-msk.ru',
+    // base: '/specvagonmash',
     integrations: [react(), mdx(), sitemap(), tailwind({
         configFile: fileURLToPath(new URL('./tailwind.config.cjs', import.meta.url)),
         // applyBaseStyles: true,
