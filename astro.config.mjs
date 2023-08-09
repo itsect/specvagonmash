@@ -16,6 +16,7 @@ export default defineConfig({
     // base: '/specvagonmash',
     integrations: [react(), mdx(), sitemap(), tailwind({
         configFile: fileURLToPath(new URL('./tailwind.config.cjs', import.meta.url)),
+        // applyBaseStyles: true,
         // blocklist: []
     })],
     output: 'static',
