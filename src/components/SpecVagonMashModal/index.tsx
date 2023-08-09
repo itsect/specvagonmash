@@ -1,16 +1,143 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import {Fragment, useState, useCallback} from 'react'
+import {Dialog, Transition} from '@headlessui/react'
 
-import { useStore } from '@nanostores/react';
+import {useStore} from '@nanostores/react';
 import {isModalOpened} from '../../store';
-
+import cx from 'classnames';
 
 export default function SpecVagonMashModal({
-    categories
+                                               categories
                                            }) {
 
     const $isModalOpened = useStore(isModalOpened);
+
+    const [formData, setFormData] = useState({
+        name: '',
+        equipment_type: categories[0].title,
+        email: '',
+        phone: '',
+        notification_method: 'Email'
+    })
+
+    const [formErrors, setFormErrors] = useState([])
+
+    const updateField = useCallback((event) => {
+        clearValidationError(event.target.name)
+        setFormData(data => ({...data, [event.target.name]: event.target.value}))
+    }, [])
+
+    const emailValidationCheck = (email) => {
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        return re.test(email)
+    }
+
+    const clearValidationError = (field) => {
+        let errors = {}
+        errors[field] = false
+        setFormErrors((formErrors) => {
+            return {
+                ...formErrors,
+                ...errors
+            }
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        let submit_flag = true
+
+        if (formData.name === '') {
+            submit_flag = false
+            setFormErrors((formNameErrors) => {
+                return {
+                    ...formNameErrors,
+                    name: true
+                }
+            })
+        }
+
+        if (formData.email === '') {
+            submit_flag = false
+
+            setFormErrors((formNameErrors) => {
+                return {
+                    ...formNameErrors,
+                    email: true
+                }
+            })
+
+        } else {
+
+            if (!emailValidationCheck(formData.email)) {
+                submit_flag = false;
+                setFormErrors((formErrors) => {
+                    return {
+                        ...formErrors,
+                        email: true,
+                    }
+                })
+            } else {
+                submit_flag = true
+                setFormErrors((formErrors) => {
+                    return {
+                        ...formErrors,
+                        email: false,
+                    }
+                })
+            }
+
+        }
+
+        if (formData.phone === '') {
+            submit_flag = false
+            setFormErrors((formNameErrors) => {
+                return {
+                    ...formNameErrors,
+                    phone: true
+                }
+            })
+
+        }
+
+        if (submit_flag) {
+            const options = {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    'API-Token': 'eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ',
+                },
+                body: JSON.stringify({
+                    ...formData,
+                })
+            };
+
+            const request = fetch('/mail.php', options)
+                .then((response) => {
+                    // Resetting form fields, when the form successfully submitted
+                    setFormData({
+                        name: '',
+                        equipment_type: categories[0].title,
+                        email: '',
+                        phone: '',
+                        notification_method: 'Email'
+                    })
+
+                    setFormErrors([])
+
+                    isModalOpened.set(!$isModalOpened)
+
+                    if (response.response !== '') {
+                        alert('Спасибо, заявка успешно отправлена')
+                    } else {
+                        alert('Извините, возникла техническая ошибка')
+                    }
+
+                });
+        }
+
+    }
 
     return (
         <Transition.Root show={$isModalOpened} as={Fragment}>
@@ -27,7 +154,7 @@ export default function SpecVagonMashModal({
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                        <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"/>
                     </Transition.Child>
 
                     {/* This element is to trick the browser into centering the modal contents. */}
@@ -43,21 +170,28 @@ export default function SpecVagonMashModal({
                         leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                         leaveTo="opacity-0 translate-y-0 sm:translate-y-0 sm:scale-95"
                     >
-                        <div className="max-w-7xl relative inline-block align-center bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-80 sm:w-full sm:p-6 opacity-100 translate-y-0 sm:scale-100">
+                        <div
+                            className="max-w-7xl relative inline-block align-center bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-80 sm:w-full sm:p-6 opacity-100 translate-y-0 sm:scale-100">
                             <div className="absolute top-0 right-0 pt-4 pr-4">
-                                <button type="button" className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" onClick={() => {
-                                    isModalOpened.set(!$isModalOpened)
-                                }}>
+                                <button type="button"
+                                        className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                        onClick={() => {
+                                            isModalOpened.set(!$isModalOpened)
+                                        }}>
                                     <span className="sr-only">Close</span>
-                                    <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                    <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                         viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                              d="M6 18L18 6M6 6l12 12"/>
                                     </svg>
                                 </button>
                             </div>
-                            <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+                            <div
+                                className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
                                 <div className="mx-auto w-100 max-w-100 lg:w-100">
                                     <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 476.4 89.2" className={'w-auto h-8 lg:h-12 text-3xl'}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 476.4 89.2"
+                                             className={'w-auto h-8 lg:h-12 text-3xl'}>
                                             <path fill={'#A5282D'} fillRule={'evenodd'} clipRule={'evenodd'} d="M75.2,53l1.9-6.8l4.2-0.3l4.5-1.4v-3l0,0C85.8,18.6,66.5,0,42.9,0S0,18.5,0,41.4l0,0v0.1l0,0v3.1l4.5,1.4
 	l4.3,0.4l1.9,6.8l-3.5,2.3l-3.2,3.3l3.7,6.1l4.6-1l3.9-1.8l5.1,5l-1.8,3.7l-1,4.4l6.3,3.6l3.5-3l2.5-3.4l7,1.8l0.3,4.1l1.4,4.3h7.3
 	l1.4-4.3l0.4-4.1l7-1.8l2.4,3.4l3.4,3.1l6.3-3.6l-1-4.4L64.8,67l5.1-4.9l3.8,1.8l4.6,1l3.6-6.1l-3.1-3.4L75.2,53L75.2,53z
@@ -79,14 +213,18 @@ export default function SpecVagonMashModal({
 		c-1.8,0-3.1,0.7-4.1,2.1c-0.7,1.1-1.1,2.7-1.1,5c0,2.8,0.4,4.7,1.3,5.7c0.8,1,2,1.6,3.6,1.6c1.5,0,2.6-0.4,3.4-1.3
 		C125.8,47.2,126.4,46,126.7,44.4z"/>
                                                 <path d="M161.5,54.8h-7.8v-19h-8.6v19h-7.8V29.5h24.1V54.8z"/>
-                                                <path d="M166.7,29.5h20.9v5.4h-13.1v4h12.1v5.1h-12.1v5h13.5v5.7h-21.3V29.5z"/>
-                                                <path d="M219,60.2h-6.3v-5.5h-20.6V29.5h7.8v19h8.6v-19h7.8v19.4h2.7V60.2z"/>
+                                                <path
+                                                    d="M166.7,29.5h20.9v5.4h-13.1v4h12.1v5.1h-12.1v5h13.5v5.7h-21.3V29.5z"/>
+                                                <path
+                                                    d="M219,60.2h-6.3v-5.5h-20.6V29.5h7.8v19h8.6v-19h7.8v19.4h2.7V60.2z"/>
                                                 <path d="M222.4,29.5H237c2.4,0,4.3,0.6,5.6,1.8s2,2.7,2,4.5c0,1.5-0.5,2.8-1.4,3.8c-0.6,0.7-1.5,1.3-2.7,1.7c1.8,0.4,3.1,1.2,4,2.2
 		s1.3,2.4,1.3,4c0,1.3-0.3,2.5-0.9,3.5s-1.4,1.9-2.5,2.5c-0.7,0.4-1.6,0.7-3,0.8c-1.8,0.2-2.9,0.3-3.5,0.3h-13.5V29.5z M230.3,39.4
 		h3.4c1.2,0,2.1-0.2,2.5-0.6c0.5-0.4,0.7-1,0.7-1.8c0-0.7-0.2-1.3-0.7-1.7c-0.5-0.4-1.3-0.6-2.5-0.6h-3.4V39.4z M230.3,49.3h4
 		c1.3,0,2.3-0.2,2.8-0.7c0.6-0.5,0.8-1.1,0.8-1.9c0-0.7-0.3-1.3-0.8-1.8c-0.5-0.5-1.5-0.7-2.9-0.7h-4V49.3z"/>
-                                                <path d="M265.3,50.6h-8.8l-1.2,4.2h-8l9.5-25.2h8.5l9.5,25.2h-8.2L265.3,50.6z M263.7,45.1l-2.8-9.1l-2.8,9.1H263.7z"/>
-                                                <path d="M277.3,29.5h7.8v8.8h8.5v-8.8h7.8v25.2h-7.8V44.6h-8.5v10.2h-7.8V29.5z"/>
+                                                <path
+                                                    d="M265.3,50.6h-8.8l-1.2,4.2h-8l9.5-25.2h8.5l9.5,25.2h-8.2L265.3,50.6z M263.7,45.1l-2.8-9.1l-2.8,9.1H263.7z"/>
+                                                <path
+                                                    d="M277.3,29.5h7.8v8.8h8.5v-8.8h7.8v25.2h-7.8V44.6h-8.5v10.2h-7.8V29.5z"/>
                                                 <path d="M326.6,35.7h-12.2v19h-7.8V29.5h20V35.7z"/>
                                                 <path d="M329.1,42.2c0-4.1,1.1-7.3,3.4-9.6c2.3-2.3,5.5-3.4,9.6-3.4c4.2,0,7.4,1.1,9.7,3.4c2.3,2.3,3.4,5.4,3.4,9.5
 		c0,2.9-0.5,5.4-1.5,7.3s-2.4,3.4-4.3,4.4s-4.2,1.6-7,1.6c-2.8,0-5.2-0.5-7.1-1.4s-3.4-2.3-4.5-4.3
@@ -97,13 +235,17 @@ export default function SpecVagonMashModal({
 		c-1.7-0.8-3.2-2.2-4.5-4.2c-1.3-2-1.9-4.6-1.9-7.7c0-4.2,1.1-7.4,3.3-9.6c2.2-2.2,5.4-3.4,9.4-3.4c3.2,0,5.7,0.6,7.5,1.9
 		c1.8,1.3,3.2,3.3,4.1,5.9l-6.9,1.5c-0.2-0.8-0.5-1.3-0.8-1.7c-0.4-0.6-1-1.1-1.6-1.4s-1.3-0.5-2.1-0.5c-1.8,0-3.1,0.7-4.1,2.1
 		c-0.7,1.1-1.1,2.7-1.1,5c0,2.8,0.4,4.7,1.3,5.7s2,1.6,3.6,1.6c1.5,0,2.6-0.4,3.4-1.3C375.4,47.2,375.9,46,376.3,44.4z"/>
-                                                <path d="M386.9,29.5h7.8v8.8h8.5v-8.8h7.8v25.2h-7.8V44.6h-8.5v10.2h-7.8V29.5z"/>
-                                                <path d="M431.7,50.6h-8.8l-1.2,4.2h-8l9.5-25.2h8.5l9.5,25.2H433L431.7,50.6z M430.1,45.1l-2.8-9.1l-2.8,9.1H430.1z"/>
+                                                <path
+                                                    d="M386.9,29.5h7.8v8.8h8.5v-8.8h7.8v25.2h-7.8V44.6h-8.5v10.2h-7.8V29.5z"/>
+                                                <path
+                                                    d="M431.7,50.6h-8.8l-1.2,4.2h-8l9.5-25.2h8.5l9.5,25.2H433L431.7,50.6z M430.1,45.1l-2.8-9.1l-2.8,9.1H430.1z"/>
                                                 <path d="M451.4,39.3h4.2c3.8,0,6.7,0.7,8.5,2c1.8,1.3,2.8,3.4,2.8,6.3c0,2.3-0.8,4.1-2.5,5.3c-1.7,1.2-4.1,1.8-7.3,1.8h-13.4V29.5
 		h21.2v5.1h-13.5V39.3z M451.4,49.3h4c2.4,0,3.7-0.9,3.7-2.6c0-1.5-1.2-2.3-3.7-2.3h-4V49.3z"/>
                                             </g>
                                         </svg>
-                                        <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Получите <span className={'text-blue-500'}>индивидуальное коммерческое предложение</span> для вашего проекта</h2>
+                                        <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Получите <span
+                                            className={'text-blue-500'}>индивидуальное коммерческое предложение</span> для
+                                            вашего проекта</h2>
                                     </div>
 
                                     <div className="mt-8">
@@ -111,36 +253,56 @@ export default function SpecVagonMashModal({
                                             <dl className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-1">
                                                 <div>
                                                     <dt className={'flex items-top'}>
-                                                        <svg className="h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                                                        <svg className="h-6 w-6 text-blue-500"
+                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                             viewBox="0 0 24 24" stroke="currentColor"
+                                                             aria-hidden="true">
+                                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                                  strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                         </svg>
-                                                        <p className="ml-3 font-medium text-gray-900">Нефтегазовое оборудования
+                                                        <p className="ml-3 font-medium text-gray-900">Нефтегазовое
+                                                            оборудования
                                                             ведущего производителя оборудования</p>
                                                     </dt>
                                                 </div>
                                                 <div>
                                                     <dt className={'flex items-top'}>
-                                                        <svg className="h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                                                        <svg className="h-6 w-6 text-blue-500"
+                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                             viewBox="0 0 24 24" stroke="currentColor"
+                                                             aria-hidden="true">
+                                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                                  strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                         </svg>
-                                                        <p className="ml-3 font-medium text-gray-900">На 30% дешевле, чем зарубежные аналоги без потери качества</p>
+                                                        <p className="ml-3 font-medium text-gray-900">На 30% дешевле,
+                                                            чем зарубежные аналоги без потери качества</p>
                                                     </dt>
                                                 </div>
                                                 <div>
                                                     <dt className={'flex items-top'}>
-                                                        <svg className="h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                                                        <svg className="h-6 w-6 text-blue-500"
+                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                             viewBox="0 0 24 24" stroke="currentColor"
+                                                             aria-hidden="true">
+                                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                                  strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                         </svg>
-                                                        <p className="ml-3 font-medium text-gray-900">Срок поставки от 30 дней, в зависимости от сложности изделия
+                                                        <p className="ml-3 font-medium text-gray-900">Срок поставки от
+                                                            30 дней, в зависимости от сложности изделия
                                                         </p>
                                                     </dt>
                                                 </div>
                                                 <div>
                                                     <dt className={'flex items-top'}>
-                                                        <svg className="h-6 w-6 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                                                        <svg className="h-6 w-6 text-blue-500"
+                                                             xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                             viewBox="0 0 24 24" stroke="currentColor"
+                                                             aria-hidden="true">
+                                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                                  strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                         </svg>
-                                                        <p className="ml-3 font-medium text-gray-900">Соблюдение гарантийных обязательств производителя</p>
+                                                        <p className="ml-3 font-medium text-gray-900">Соблюдение
+                                                            гарантийных обязательств производителя</p>
                                                     </dt>
                                                 </div>
                                             </dl>
@@ -150,7 +312,8 @@ export default function SpecVagonMashModal({
                                             <form action="#" method="POST" className="space-y-6" name="modal">
                                                 <div className={'grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3'}>
                                                     <div>
-                                                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                                                        <label htmlFor="name"
+                                                               className="block text-sm font-medium text-gray-700">
                                                             Ваше имя:
                                                         </label>
                                                         <div className="mt-1">
@@ -158,31 +321,42 @@ export default function SpecVagonMashModal({
                                                                 type="text"
                                                                 name="name"
                                                                 id="name"
-                                                                className="shadow-sm focus:ring-blue-500 focus:border-blue-700 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                                value={formData.name}
+                                                                onChange={updateField}
+                                                                className={cx('shadow-sm focus:ring-blue-500 focus:border-blue-700 block w-full sm:text-sm border-gray-300 rounded-md field', {'border-red-500 invalid': formErrors.name})}
                                                                 placeholder="Иван Иванов"
                                                             />
+                                                            {formErrors.name && (
+                                                                <span className={cx('mt-2 text-sm text-red-600')}>
+                                                                    Пожалуйста введите ваше имя
+                                                                </span>
+                                                            )}
                                                         </div>
                                                     </div>
                                                     <div>
-                                                        <label htmlFor="equipment" className="block text-sm font-medium text-gray-700">
+                                                        <label htmlFor="equipment"
+                                                               className="block text-sm font-medium text-gray-700">
                                                             Тип оборудования
                                                         </label>
                                                         <select
-                                                            id="equipment"
-                                                            name="equipment"
+                                                            id="equipment_type"
+                                                            name="equipment_type"
                                                             className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
-                                                            defaultValue="Canada"
+                                                            defaultValue={categories[0].title}
+                                                            onChange={updateField}
                                                         >
-                                                            {categories.map((category) => {
+                                                            {categories.map((category, index) => {
                                                                 return (
-                                                                    <option value={category.title}>{category.title}</option>
+                                                                    <option value={category.title}
+                                                                            key={'category-value' + index}>{category.title}</option>
                                                                 )
                                                             })}
 
                                                         </select>
                                                     </div>
                                                     <div>
-                                                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                                                        <label htmlFor="email"
+                                                               className="block text-sm font-medium text-gray-700">
                                                             Ваш email:
                                                         </label>
                                                         <div className="mt-1">
@@ -190,15 +364,23 @@ export default function SpecVagonMashModal({
                                                                 type="email"
                                                                 name="email"
                                                                 id="email"
-                                                                className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                                value={formData.email}
+                                                                onChange={updateField}
+                                                                className={cx('shadow-sm focus:ring-blue-500 focus:border-blue-700 block w-full sm:text-sm border-gray-300 rounded-md field', {'border-red-500 invalid': formErrors.email})}
                                                                 placeholder="you@example.com"
                                                             />
+                                                            {formErrors.email && (
+                                                                <span className={cx('mt-2 text-sm text-red-600')}>
+                                                                    Пожалуйста введите ваш email
+                                                                </span>
+                                                            )}
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
                                                     <div className={'md:col-span-1'}>
-                                                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                                                        <label htmlFor="phone"
+                                                               className="block text-sm font-medium text-gray-700">
                                                             Ваш телефон:
                                                         </label>
                                                         <div className="mt-1">
@@ -206,47 +388,66 @@ export default function SpecVagonMashModal({
                                                                 type="tel"
                                                                 name="phone"
                                                                 id="phone"
-                                                                className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                                value={formData.phone}
+                                                                onChange={updateField}
+                                                                className={cx('shadow-sm focus:ring-blue-500 focus:border-blue-700 block w-full sm:text-sm border-gray-300 rounded-md field', {'border-red-500 invalid': formErrors.phone})}
                                                                 placeholder="+7-000-000-00-00"
                                                             />
+                                                            {formErrors.phone && (
+                                                                <span
+                                                                    className="mt-2 text-sm text-red-600 field-[&:not(:focus):invalid]:block">
+                                                                    Пожалуйста введите ваш номер телефона
+                                                                </span>
+                                                            )}
                                                         </div>
                                                     </div>
                                                     <div>
-                                                        <label className="block text-sm font-medium text-gray-700">Способ оповещения</label>
+                                                        <label className="block text-sm font-medium text-gray-700">Способ
+                                                            оповещения</label>
                                                         <fieldset className="mt-4">
                                                             <legend className="sr-only">Метод оповещения</legend>
-                                                            <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+                                                            <div
+                                                                className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
                                                                 <div className="flex items-center">
                                                                     <input
-                                                                        name="notification-method"
+                                                                        name="notification_method"
                                                                         type="radio"
                                                                         id="send_by_email"
+                                                                        value={'Email'}
                                                                         defaultChecked={true}
+                                                                        onChange={updateField}
                                                                         className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                                                                     />
-                                                                    <label htmlFor={'send_by_email'} className="ml-3 block text-sm font-medium text-gray-700">
+                                                                    <label htmlFor={'send_by_email'}
+                                                                           className="ml-3 block text-sm font-medium text-gray-700">
                                                                         Email
                                                                     </label>
                                                                 </div>
                                                                 <div className="flex items-center">
                                                                     <input
                                                                         id={'send_by_whatsapp'}
-                                                                        name="notification-method"
+                                                                        name="notification_method"
                                                                         type="radio"
+                                                                        value={'WhatsApp'}
+                                                                        onChange={updateField}
                                                                         className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                                                                     />
-                                                                    <label htmlFor={'send_by_whatsapp'} className="ml-3 block text-sm font-medium text-gray-700">
+                                                                    <label htmlFor={'send_by_whatsapp'}
+                                                                           className="ml-3 block text-sm font-medium text-gray-700">
                                                                         WhatsApp
                                                                     </label>
                                                                 </div>
                                                                 <div className="flex items-center">
                                                                     <input
                                                                         id={'send_by_telegram'}
-                                                                        name="notification-method"
+                                                                        name="notification_method"
                                                                         type="radio"
+                                                                        value={'Telegram'}
+                                                                        onChange={updateField}
                                                                         className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                                                                     />
-                                                                    <label htmlFor={'send_by_telegram'} className="ml-3 block text-sm font-medium text-gray-700">
+                                                                    <label htmlFor={'send_by_telegram'}
+                                                                           className="ml-3 block text-sm font-medium text-gray-700">
                                                                         Telegram
                                                                     </label>
                                                                 </div>
@@ -258,6 +459,7 @@ export default function SpecVagonMashModal({
                                                 <div>
                                                     <button
                                                         type="submit"
+                                                        onClick={handleSubmit}
                                                         className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-700"
                                                     >
                                                         Отправить

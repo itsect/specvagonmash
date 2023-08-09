@@ -12,9 +12,54 @@ import rosneft from '../assets/logos/rosneft.svg'
 import sibur from '../assets/logos/sibur.svg'
 import surgutneftegas from '../assets/logos/surgutneftegas.svg'
 
+
+/*
+
+<div class="">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+                <p class="text-center text-base font-semibold uppercase text-gray-600 tracking-wider">Нам доверяют компании:</p>
+                <div class="max-w-3xl mx-auto">
+                    <div class="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
+                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
+                            <img class="max-h-16" src={gazprom.src} alt="ГазПром" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
+                            <img class="max-h-24" src={lukoil.src} alt="Лукоил" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
+                            <img class="max-h-12" src={sibur.src} alt="Cибур" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
+                            <img class="max-h-24" src={tatneft.src} alt="Татнефть" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
+                            <img class="max-h-24" src={rosneft.src} alt="Роснефть" />
+                        </div>
+                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
+                            <img class="max-h-24" src={surgutneftegas.src} alt="Cургутнефтегаз" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ */
+
 ---
 <Index>
     <div class="bg-gray-50">
+
+        <section class="py-1 bg-gray-50 overflow-hidden md:py-1 lg:py-2">
+            <div class="relative max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="relative">
+                    <blockquote class="">
+                        <div class="max-w-5xl mx-auto text-center text-md leading-9 font-normal text-gray-900">
+                            <p>&ldquo;Мы работаем, чтобы обеспечить успех промышленности нашей страны!&rdquo; <span class="text-xl">🇷🇺</span></p>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
 
         <div class="relative bg-white overflow-hidden">
             <div class="max-w-7xl mx-auto relative">
@@ -117,7 +162,7 @@ import surgutneftegas from '../assets/logos/surgutneftegas.svg'
 
         <div class="relative bg-white">
             <div class="h-56 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">
-                <Image class="w-full h-full object-cover" src={oil_gas_cooperation_benefits} alt="Выгода от сотрудничества" />
+                <Image class="w-full h-full object-cover" src={oil_gas_cooperation_benefits} alt="Выгода от сотрудничества с СпецВагонСнаб" />
                 <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                     <polygon points="50,0 100,0 50,100 0,100" />
                 </svg>
@@ -145,60 +190,5 @@ import surgutneftegas from '../assets/logos/surgutneftegas.svg'
                 </div>
             </div>
         </div>
-
-        <!--
-        <div class="">
-            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-                <p class="text-center text-base font-semibold uppercase text-gray-600 tracking-wider">Нам доверяют компании:</p>
-                <div class="max-w-3xl mx-auto">
-                    <div class="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
-                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
-                            <img class="max-h-16" src={gazprom.src} alt="ГазПром" />
-                        </div>
-                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
-                            <img class="max-h-24" src={lukoil.src} alt="Лукоил" />
-                        </div>
-                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
-                            <img class="max-h-12" src={sibur.src} alt="Cибур" />
-                        </div>
-                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
-                            <img class="max-h-24" src={tatneft.src} alt="Татнефть" />
-                        </div>
-                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
-                            <img class="max-h-24" src={rosneft.src} alt="Роснефть" />
-                        </div>
-                        <div class="col-span-1 flex justify-center py-4 px-4 bg-gray-50 items-center">
-                            <img class="max-h-24" src={surgutneftegas.src} alt="Cургутнефтегаз" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
-
-        <!-- This example requires Tailwind CSS v2.0+ -->
-        <section class="py-6 bg-gray-50 overflow-hidden md:py-10 lg:py-14">
-            <div class="relative max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
-                <svg class="absolute top-full right-full transform translate-x-1/3 -translate-y-1/4 lg:translate-x-1/2 xl:-translate-y-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404" role="img" aria-labelledby="svg-workcation">
-                    <title id="svg-workcation">Workcation</title>
-                    <defs>
-                        <pattern id="ad119f34-7694-4c31-947f-5c9d249b21f3" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
-                        </pattern>
-                    </defs>
-                    <rect width="404" height="404" fill="url(#ad119f34-7694-4c31-947f-5c9d249b21f3)" />
-                </svg>
-
-                <div class="relative">
-                    <blockquote class="mt-2">
-                        <div class="max-w-5xl mx-auto text-center text-2xl leading-9 font-medium text-gray-900">
-                            <p>&ldquo;Мы работаем, чтобы обеспечить успех промышленности нашей страны!&rdquo; <span class="text-3xl">🇷🇺</span></p>
-                        </div>
-                    </blockquote>
-                </div>
-            </div>
-        </section>
-
-
     </div>
 </Index>

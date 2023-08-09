@@ -15,7 +15,7 @@ const categories = categoryCollection.map((category) => {
 })
 ---
 
-<div class="bg-white relative overflow-hidden ">
+<div class="bg-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 md:py-16 lg:px-8 lg:py-12">
         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             <span class="block">Нужна консультация ?</span>
@@ -138,4 +138,4 @@ const categories = categoryCollection.map((category) => {
     </div>
 </footer>
 
-<SpecVagonMashModal client:only="react" categories={categories} />
+<SpecVagonMashModal client:only="react" categories={categories} key={'modal-form-1'} />
