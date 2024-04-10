@@ -14,7 +14,7 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Sitemap -->
-<link rel="sitemap" href={new URL('https://svs-msk.ru/sitemap-index.xml')}>
+<link rel="sitemap" href={new URL('http://localhost:3000/sitemap-index.xml')}>
 
 <slot />
 
@@ -26,14 +26,14 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={'https://svs-msk.ru/'} />
+<meta property="og:url" content={'http://localhost:3000/'} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, 'https://svs-msk.ru/')} />
+<meta property="og:image" content={new URL(image, 'http://localhost:3000/')} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={'https://svs-msk.ru/'} />
+<meta property="twitter:url" content={'http://localhost:3000/'} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, 'https://svs-msk.ru/')} />
+<meta property="twitter:image" content={new URL(image, 'http://localhost:3000/')} />
