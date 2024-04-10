@@ -51,112 +51,114 @@ if (entry === undefined) {
 const {Content} = await entry.render();
 ---
 <ProductsLayout>
-    <div class="bg-white">
-        <div class="relative py-14 px-4 sm:py-14 sm:px-6 lg:px-8" ">
-            <div aria-hidden="true" class="absolute inset-0 bg-slate-700 bg-opacity-50"></div>
-            <div class="relative mx-auto max-w-7xl py-6 sm:py-6 sm:px-2 lg:px-4 px-4">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{entry.data.title}</h2>
-            </div>
-        </div>
-        <div class="mx-auto max-w-7xl py-6 sm:py-6 sm:px-2 lg:px-4 px-4">
-            <nav class="flex" aria-label="Breadcrumb">
-                <ol role="list" class="flex items-center space-x-4 overflow-hidden">
-                    <li>
-                        <div class="flex items-center">
-                            <a href={new URL('http://localhost:3000/')} class="text-blue-500 hover:text-blue-700">
-                                <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20"
-                                     fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                          d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
-                                          clip-rule="evenodd"/>
-                                </svg>
-                                <span class="sr-only">Главная страница</span>
-                            </a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="flex items-center">
-                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                      clip-rule="evenodd"/>
-                            </svg>
-                            <a href={new URL('http://localhost:3000/products')}
-                               class="ml-4 text-sm font-medium text-blue-500 hover:text-blue-700" title="Продукция">
-                                <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none">
-                                    <path fill="currentColor" fill-rule="evenodd"
-                                          d="M6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H6zm4 5a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2h-6a1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2h-6a1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2h-6a1 1 0 0 1-1-1zM7 7a1 1 0 0 0 0 2h.001a1 1 0 0 0 0-2H7zm-1 5a1 1 0 0 1 1-1h.001a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1zm1 3a1 1 0 1 0 0 2h.001a1 1 0 1 0 0-2H7z"
-                                          clip-rule="evenodd"/>
-                                </svg>
-                                <span class="sr-only">Продукция</span>
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="flex items-center overflow-hidden truncate">
-                        <div class="flex items-center overflow-hidden truncate">
-                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                      clip-rule="evenodd"/>
-                            </svg>
-                            <a href={new URL(category?.slug, 'http://localhost:3000/products/')}
-                               class="ml-4 text-sm font-medium text-blue-500 hover:text-blue-700 truncate"
-                               aria-current="page" title={category.data.title}>{category.data.title}</a>
-                        </div>
-                    </li>
-
-                    <li class="flex items-center overflow-hidden truncate">
-                        <div class="flex items-center overflow-hidden truncate">
-                            <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                                      clip-rule="evenodd"/>
-                            </svg>
-                            <span class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 truncate"
-                                  aria-current="page" title={entry.data.title}>{entry.data.title}</span>
-                        </div>
-                    </li>
-                </ol>
-            </nav>
-        </div>
-
-        <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16 border-t border-gray-200 border-b-2 border-gray-200 grid grid-cols-3 gap-1">
-
-            <!-- Product details -->
-            <div class="lg:pb-16 lg:pr-8" class:list={[{'col-span-3' : !(image && entry.data?.has_featured_image)}, {'col-span-3 lg:col-span-2 lg:border-r lg:border-gray-200 order-2 lg:order-1' : (image && entry.data?.has_featured_image)}]}>
-
-                <section aria-labelledby="information-heading" class="mt-4">
-
-                    <div class="prose w-full max-w-full">
-                        <Content/>
-
-                        {(pdf && entry.data?.has_pdf) && (
-                                <a href={pdf?.default}
-                                   class="no-underline mt-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-700"
-                                   type="button">Скачать PDF документацию</a>
-                        )}
-
-                    </div>
-
-                </section>
-            </div>
-
-            <!-- Product image -->
-            {(image && entry.data?.has_featured_image) && (
-                    <div class="mt-4 lg:mt-0 lg:order-1 lg:col-span-1 col-span-3">
-                        <div class="aspect-w-1 aspect-h-1 rounded-lg">
-                            <Image aspectRatio={'16:9'} position={'top'} src={image?.default} alt={entry.data.title}/>
-                        </div>
-                    </div>
-            )}
-
-        </div>
+  <div class="bg-white">
+    <div class="relative py-14 px-4 sm:py-14 sm:px-6 lg:px-8" ">
+      <div aria-hidden="true" class="absolute inset-0 bg-slate-700 bg-opacity-50"></div>
+      <div class="relative mx-auto max-w-7xl py-6 sm:py-6 sm:px-2 lg:px-4 px-4">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">{entry.data.title}</h2>
+      </div>
     </div>
+    <div class="mx-auto max-w-7xl py-6 sm:py-6 sm:px-2 lg:px-4 px-4">
+      <nav class="flex" aria-label="Breadcrumb">
+        <ol role="list" class="flex items-center space-x-4 overflow-hidden">
+          <li>
+            <div class="flex items-center">
+              <a href={new URL('https://svs-msk.ru/')} class="text-blue-500 hover:text-blue-700">
+                <svg class="h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 20 20"
+                     fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd"
+                        d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
+                        clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">Главная страница</span>
+              </a>
+            </div>
+          </li>
+
+          <li>
+            <div class="flex items-center">
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                   viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd"
+                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                      clip-rule="evenodd"/>
+              </svg>
+              <a href={new URL('https://svs-msk.ru/products')}
+                 class="ml-4 text-sm font-medium text-blue-500 hover:text-blue-700" title="Продукция">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                     fill="none">
+                  <path fill="currentColor" fill-rule="evenodd"
+                        d="M6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H6zm4 5a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2h-6a1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2h-6a1 1 0 0 1-1-1zm0 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2h-6a1 1 0 0 1-1-1zM7 7a1 1 0 0 0 0 2h.001a1 1 0 0 0 0-2H7zm-1 5a1 1 0 0 1 1-1h.001a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1zm1 3a1 1 0 1 0 0 2h.001a1 1 0 1 0 0-2H7z"
+                        clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">Продукция</span>
+              </a>
+            </div>
+          </li>
+
+          <li class="flex items-center overflow-hidden truncate">
+            <div class="flex items-center overflow-hidden truncate">
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                   viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd"
+                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                      clip-rule="evenodd"/>
+              </svg>
+              <a href={new URL(category?.slug, 'https://svs-msk.ru/products/')}
+                 class="ml-4 text-sm font-medium text-blue-500 hover:text-blue-700 truncate"
+                 aria-current="page" title={category?.data.title}>{category?.data.title}</a>
+            </div>
+          </li>
+
+          <li class="flex items-center overflow-hidden truncate">
+            <div class="flex items-center overflow-hidden truncate">
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                   viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd"
+                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                      clip-rule="evenodd"/>
+              </svg>
+              <span class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 truncate"
+                    aria-current="page" title={entry?.data.title}>{entry?.data.title}</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div
+        class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16 border-t border-gray-200 border-b-2 border-gray-200 grid grid-cols-3 gap-1">
+
+      <!-- Product details -->
+      <div class="lg:pb-16 lg:pr-8"
+           class:list={[{'col-span-3': !(image && entry.data?.has_featured_image)}, {'col-span-3 lg:col-span-2 lg:border-r lg:border-gray-200 order-2 lg:order-1': (image && entry.data?.has_featured_image)}]}>
+
+        <section aria-labelledby="information-heading" class="mt-4">
+
+          <div class="prose w-full max-w-full">
+            <Content/>
+
+              {(pdf && entry.data?.has_pdf) && (
+                  <a href={pdf?.default}
+                     class="no-underline mt-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-700"
+                     type="button">Скачать PDF документацию</a>
+              )}
+
+          </div>
+
+        </section>
+      </div>
+
+      <!-- Product image -->
+        {(image && entry.data?.has_featured_image) && (
+            <div class="mt-4 lg:mt-0 lg:order-1 lg:col-span-1 col-span-3">
+              <div class="aspect-w-1 aspect-h-1 rounded-lg">
+                <Image aspectRatio={'16:9'} position={'top'} src={image?.default} alt={entry.data.title}/>
+              </div>
+            </div>
+        )}
+
+    </div>
+  </div>
 </ProductsLayout>

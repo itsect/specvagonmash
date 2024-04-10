@@ -12,7 +12,7 @@ import sitemap from '@astrojs/sitemap';
 
 
 export default defineConfig({
-    site: 'http://localhost:3000',
+    site: 'https://svs-msk.ru',
     // base: '/specvagonmash',
     integrations: [react(), mdx(), sitemap(), tailwind({
         configFile: fileURLToPath(new URL('./tailwind.config.cjs', import.meta.url)),
