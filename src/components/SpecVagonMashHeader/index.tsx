@@ -118,7 +118,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                 return (
                                     <>
                                         <div
-                                            className={'relative hidden'}
+                                            className={'relative'}
                                             onClick={openMenu}
                                             onMouseEnter={() => onMouseEnter(!open)}
                                             onMouseLeave={() => onMouseLeave(open)}
@@ -375,7 +375,7 @@ export default function SpecVagonMashHeader({categories, logo}) {
                                 <div className="py-6 px-5 space-y-6 ">
                                     <div className={'grid grid-cols-2 gap-4'}>
                                         <div
-                                            className="py-1 hidden">
+                                            className="py-1">
                                             <div className="flow-root">
                                                 <a href={new URL('https://svs-msk.ru/products')}
                                                    className="inline-flex items-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-blue-500 hover:text-blue-700">
