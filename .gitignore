@@ -2,3 +2,5 @@
 Dockerfile
 Dockerfile.build
 Makefile
+/node_modules
+/dist
