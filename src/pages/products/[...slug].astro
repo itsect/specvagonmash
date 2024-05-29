@@ -26,7 +26,7 @@ const product_images = await Astro.glob('../../content/products/**/*-product.png
 const product_pdfs = await Astro.glob('../../content/products/**/*.pdf');
 
 const image = product_images.find(image => {
-    return image.default.src.includes(slug.split('/').at(-1)+'-product.png');
+    return image.default.src.includes(slug.split('/').at(0) + '/' + slug.split('/').at(-1) + '/' + slug.split('/').at(-1) + '-product.png');
 })
 
 const pdf = product_pdfs.find(pdf => {
