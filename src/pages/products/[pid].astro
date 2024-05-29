@@ -110,7 +110,7 @@ const product_images = await Astro.glob('../../content/products/**/*-product.png
                     {productsList.map(product => {
 
                         const product_image = product_images.find(image => {
-                            return image.default.src.includes(product.slug.split('/').at(-1))
+                            return image.default.src.includes(product.slug.split('/').at(-1)+'-product.png');
                         });
 
                         return (
