@@ -205,9 +205,9 @@ declare module 'astro:content' {
   collection: "categories";
   data: any
 } & { render(): Render[".mdx"] };
-"flow-control-equipment/index.mdx": {
-	id: "flow-control-equipment/index.mdx";
-  slug: "flow-control-equipment";
+"equipment-in-stock/index.mdx": {
+	id: "equipment-in-stock/index.mdx";
+  slug: "equipment-in-stock";
   body: string;
   collection: "categories";
   data: any
@@ -219,37 +219,9 @@ declare module 'astro:content' {
   collection: "categories";
   data: any
 } & { render(): Render[".mdx"] };
-"miscellaneous-products/index.mdx": {
-	id: "miscellaneous-products/index.mdx";
-  slug: "miscellaneous-products";
-  body: string;
-  collection: "categories";
-  data: any
-} & { render(): Render[".mdx"] };
-"sucker-rod-pressure-control-equipment/index.mdx": {
-	id: "sucker-rod-pressure-control-equipment/index.mdx";
-  slug: "sucker-rod-pressure-control-equipment";
-  body: string;
-  collection: "categories";
-  data: any
-} & { render(): Render[".mdx"] };
-"surface-pressure-control-equipment/index.mdx": {
-	id: "surface-pressure-control-equipment/index.mdx";
-  slug: "surface-pressure-control-equipment";
-  body: string;
-  collection: "categories";
-  data: any
-} & { render(): Render[".mdx"] };
-"unions-swivels-treating-irons-circulating-heads/index.mdx": {
-	id: "unions-swivels-treating-irons-circulating-heads/index.mdx";
-  slug: "unions-swivels-treating-irons-circulating-heads";
-  body: string;
-  collection: "categories";
-  data: any
-} & { render(): Render[".mdx"] };
-"wireline-tools-accessories/index.mdx": {
-	id: "wireline-tools-accessories/index.mdx";
-  slug: "wireline-tools-accessories";
+"wellhead-and-fountain-fittings/index.mdx": {
+	id: "wellhead-and-fountain-fittings/index.mdx";
+  slug: "wellhead-and-fountain-fittings";
   body: string;
   collection: "categories";
   data: any
@@ -854,6 +826,202 @@ declare module 'astro:content' {
 "completion-equipment/tubing-anchor-catcher-tac/index.mdx": {
 	id: "completion-equipment/tubing-anchor-catcher-tac/index.mdx";
   slug: "completion-equipment/tubing-anchor-catcher-tac";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/drossel-2/index.mdx": {
+	id: "equipment-in-stock/drossel-2/index.mdx";
+  slug: "equipment-in-stock/drossel-2";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/drossel/index.mdx": {
+	id: "equipment-in-stock/drossel/index.mdx";
+  slug: "equipment-in-stock/drossel";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/klapan-obratnii-2/index.mdx": {
+	id: "equipment-in-stock/klapan-obratnii-2/index.mdx";
+  slug: "equipment-in-stock/klapan-obratnii-2";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/klapan-obratnii-3/index.mdx": {
+	id: "equipment-in-stock/klapan-obratnii-3/index.mdx";
+  slug: "equipment-in-stock/klapan-obratnii-3";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/klapan-predohranitelnii-2/index.mdx": {
+	id: "equipment-in-stock/klapan-predohranitelnii-2/index.mdx";
+  slug: "equipment-in-stock/klapan-predohranitelnii-2";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/klapan-predohranitelnii/index.mdx": {
+	id: "equipment-in-stock/klapan-predohranitelnii/index.mdx";
+  slug: "equipment-in-stock/klapan-predohranitelnii";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/kran-probkovii-2/index.mdx": {
+	id: "equipment-in-stock/kran-probkovii-2/index.mdx";
+  slug: "equipment-in-stock/kran-probkovii-2";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/kran-probkovii/index.mdx": {
+	id: "equipment-in-stock/kran-probkovii/index.mdx";
+  slug: "equipment-in-stock/kran-probkovii";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/krestovina/index.mdx": {
+	id: "equipment-in-stock/krestovina/index.mdx";
+  slug: "equipment-in-stock/krestovina";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/patrubok/index.mdx": {
+	id: "equipment-in-stock/patrubok/index.mdx";
+  slug: "equipment-in-stock/patrubok";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/perevodnik-2/index.mdx": {
+	id: "equipment-in-stock/perevodnik-2/index.mdx";
+  slug: "equipment-in-stock/perevodnik-2";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/perevodnik-3/index.mdx": {
+	id: "equipment-in-stock/perevodnik-3/index.mdx";
+  slug: "equipment-in-stock/perevodnik-3";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/perevodnik/index.mdx": {
+	id: "equipment-in-stock/perevodnik/index.mdx";
+  slug: "equipment-in-stock/perevodnik";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/remkomplek-drossel/index.mdx": {
+	id: "equipment-in-stock/remkomplek-drossel/index.mdx";
+  slug: "equipment-in-stock/remkomplek-drossel";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/remkomplek-krana-probkovogo-2/index.mdx": {
+	id: "equipment-in-stock/remkomplek-krana-probkovogo-2/index.mdx";
+  slug: "equipment-in-stock/remkomplek-krana-probkovogo-2";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/remkomplek-krana-probkovogo-3/index.mdx": {
+	id: "equipment-in-stock/remkomplek-krana-probkovogo-3/index.mdx";
+  slug: "equipment-in-stock/remkomplek-krana-probkovogo-3";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/remkomplek-krana-probkovogo/index.mdx": {
+	id: "equipment-in-stock/remkomplek-krana-probkovogo/index.mdx";
+  slug: "equipment-in-stock/remkomplek-krana-probkovogo";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/sharnirnoe-koleno-2/index.mdx": {
+	id: "equipment-in-stock/sharnirnoe-koleno-2/index.mdx";
+  slug: "equipment-in-stock/sharnirnoe-koleno-2";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/sharnirnoe-koleno-3/index.mdx": {
+	id: "equipment-in-stock/sharnirnoe-koleno-3/index.mdx";
+  slug: "equipment-in-stock/sharnirnoe-koleno-3";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/sharnirnoe-koleno/index.mdx": {
+	id: "equipment-in-stock/sharnirnoe-koleno/index.mdx";
+  slug: "equipment-in-stock/sharnirnoe-koleno";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/truba-visokogo-davleniya-2/index.mdx": {
+	id: "equipment-in-stock/truba-visokogo-davleniya-2/index.mdx";
+  slug: "equipment-in-stock/truba-visokogo-davleniya-2";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/truba-visokogo-davleniya-3/index.mdx": {
+	id: "equipment-in-stock/truba-visokogo-davleniya-3/index.mdx";
+  slug: "equipment-in-stock/truba-visokogo-davleniya-3";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/truba-visokogo-davleniya-4/index.mdx": {
+	id: "equipment-in-stock/truba-visokogo-davleniya-4/index.mdx";
+  slug: "equipment-in-stock/truba-visokogo-davleniya-4";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/truba-visokogo-davleniya-5/index.mdx": {
+	id: "equipment-in-stock/truba-visokogo-davleniya-5/index.mdx";
+  slug: "equipment-in-stock/truba-visokogo-davleniya-5";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/truba-visokogo-davleniya-6/index.mdx": {
+	id: "equipment-in-stock/truba-visokogo-davleniya-6/index.mdx";
+  slug: "equipment-in-stock/truba-visokogo-davleniya-6";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/truba-visokogo-davleniya-7/index.mdx": {
+	id: "equipment-in-stock/truba-visokogo-davleniya-7/index.mdx";
+  slug: "equipment-in-stock/truba-visokogo-davleniya-7";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/truba-visokogo-davleniya-8/index.mdx": {
+	id: "equipment-in-stock/truba-visokogo-davleniya-8/index.mdx";
+  slug: "equipment-in-stock/truba-visokogo-davleniya-8";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".mdx"] };
+"equipment-in-stock/truba-visokogo-davleniya/index.mdx": {
+	id: "equipment-in-stock/truba-visokogo-davleniya/index.mdx";
+  slug: "equipment-in-stock/truba-visokogo-davleniya";
   body: string;
   collection: "products";
   data: any
